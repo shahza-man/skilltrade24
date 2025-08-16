@@ -1,0 +1,55 @@
+import "./global.css";
+
+import { Toaster } from "@/components/ui/toaster";
+import { createRoot } from "react-dom/client";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Index from "./pages/Index";
+import Skills from "./pages/Skills";
+import Trades from "./pages/Trades";
+import About from "./pages/About";
+import CreateProfile from "./pages/CreateProfile";
+import SocialFeed from "./pages/SocialFeed";
+import CreatePost from "./pages/CreatePost";
+import Profile from "./pages/Profile";
+import EditProfile from "./pages/EditProfile";
+import NotFound from "./pages/NotFound";
+
+const queryClient = new QueryClient();
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/trades" element={<Trades />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/create-profile" element={<CreateProfile />} />
+          <Route path="/feed" element={<SocialFeed />} />
+          <Route path="/create-post" element={<CreatePost />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/edit-profile" element={<EditProfile />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
+
+// Create root only once
+const container = document.getElementById("root")!;
+let root = (container as any)._reactRoot;
+
+if (!root) {
+  root = createRoot(container);
+  (container as any)._reactRoot = root;
+}
+
+root.render(<App />);
