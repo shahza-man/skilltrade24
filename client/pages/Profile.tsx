@@ -70,7 +70,7 @@ const Profile: React.FC = () => {
 
       <div className="max-w-4xl mx-auto py-8 px-4">
         {/* Profile Header */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-6">
+        <div className="bg-white border border-gray-200 p-8 mb-8">
           <div className="flex flex-col md:flex-row items-start md:items-center space-y-6 md:space-y-0 md:space-x-8">
             {/* Profile Picture */}
             <div className="flex-shrink-0">
