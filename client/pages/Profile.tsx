@@ -131,7 +131,7 @@ const Profile: React.FC = () => {
                 <Button
                   onClick={() => navigate("/edit-profile")}
                   variant="outline"
-                  className="mt-4 sm:mt-0 border-green-500 text-green-600 hover:bg-green-50"
+                  className="mt-4 sm:mt-0"
                 >
                   Edit Profile
                 </Button>
