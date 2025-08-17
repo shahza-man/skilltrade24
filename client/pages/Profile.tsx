@@ -41,15 +41,23 @@ const Profile: React.FC = () => {
                 onClick={() => navigate("/feed")}
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
                 </svg>
               </button>
               <h1 className="text-xl font-semibold text-foreground">Profile</h1>
             </div>
-            <Button onClick={() => navigate("/create-post")}>
-              New Post
-            </Button>
+            <Button onClick={() => navigate("/create-post")}>New Post</Button>
           </div>
         </div>
       </div>
@@ -76,8 +84,13 @@ const Profile: React.FC = () => {
               {/* Profile Info */}
               <div className="flex-1 mt-16">
                 <div className="flex items-center justify-between mb-2">
-                  <h1 className="text-3xl font-bold text-foreground">{user.name}</h1>
-                  <Button onClick={() => navigate("/edit-profile")} variant="outline">
+                  <h1 className="text-3xl font-bold text-foreground">
+                    {user.name}
+                  </h1>
+                  <Button
+                    onClick={() => navigate("/edit-profile")}
+                    variant="outline"
+                  >
                     Edit Profile
                   </Button>
                 </div>
@@ -90,13 +103,17 @@ const Profile: React.FC = () => {
 
                 <div className="flex items-center space-x-2 mb-4">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="text-sm text-primary font-medium">Available for skill trades</span>
+                  <span className="text-sm text-primary font-medium">
+                    Available for skill trades
+                  </span>
                 </div>
 
                 {/* Skills */}
                 {user.skillsIHave && user.skillsIHave.length > 0 && (
                   <div className="mb-4">
-                    <h3 className="text-sm font-medium text-foreground mb-2">Skills</h3>
+                    <h3 className="text-sm font-medium text-foreground mb-2">
+                      Skills
+                    </h3>
                     <div className="flex flex-wrap gap-2">
                       {user.skillsIHave.map((skill: string, index: number) => (
                         <span
@@ -116,7 +133,9 @@ const Profile: React.FC = () => {
             <div className="border-t border-border pt-6 mt-6">
               <div className="grid grid-cols-4 gap-6">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-foreground">{userPosts.length}</div>
+                  <div className="text-2xl font-bold text-foreground">
+                    {userPosts.length}
+                  </div>
                   <div className="text-sm text-muted-foreground">Posts</div>
                 </div>
                 <div className="text-center">
@@ -128,7 +147,9 @@ const Profile: React.FC = () => {
                   <div className="text-sm text-muted-foreground">Trades</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-foreground">{user.skillsIHave?.length || 0}</div>
+                  <div className="text-2xl font-bold text-foreground">
+                    {user.skillsIHave?.length || 0}
+                  </div>
                   <div className="text-sm text-muted-foreground">Skills</div>
                 </div>
               </div>
@@ -294,11 +315,11 @@ const Profile: React.FC = () => {
               <div className="space-y-8">
                 {/* Bio Section */}
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">About</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                    About
+                  </h3>
                   <p className="text-gray-700 leading-relaxed">
-                    {user.bio ||
-                      user.whatImGoodAt ||
-                      "No bio provided yet."}
+                    {user.bio || user.whatImGoodAt || "No bio provided yet."}
                   </p>
                 </div>
 
@@ -385,14 +406,18 @@ const Profile: React.FC = () => {
                           key={index}
                           className="flex items-center justify-between p-3 bg-green-50 border border-green-200 rounded-lg"
                         >
-                          <span className="text-green-800 font-medium">{skill}</span>
+                          <span className="text-green-800 font-medium">
+                            {skill}
+                          </span>
                           <div className="flex items-center space-x-1">
                             <div className="flex space-x-1">
                               {[...Array(5)].map((_, i) => (
                                 <svg
                                   key={i}
                                   className={`w-3 h-3 ${
-                                    i < (index % 3 + 3) ? 'text-yellow-400' : 'text-gray-300'
+                                    i < (index % 3) + 3
+                                      ? "text-yellow-400"
+                                      : "text-gray-300"
                                   }`}
                                   fill="currentColor"
                                   viewBox="0 0 24 24"
@@ -402,7 +427,7 @@ const Profile: React.FC = () => {
                               ))}
                             </div>
                             <span className="text-xs text-green-600 font-medium">
-                              {index % 3 + 3}/5
+                              {(index % 3) + 3}/5
                             </span>
                           </div>
                         </div>
@@ -425,7 +450,9 @@ const Profile: React.FC = () => {
                           />
                         </svg>
                       </div>
-                      <p className="text-gray-500 italic mb-3">No skills listed yet</p>
+                      <p className="text-gray-500 italic mb-3">
+                        No skills listed yet
+                      </p>
                       <Button
                         onClick={() => navigate("/edit-profile")}
                         variant="outline"
@@ -551,7 +578,7 @@ const Profile: React.FC = () => {
                             <svg
                               key={i}
                               className={`w-3 h-3 ${
-                                i < 5 ? 'text-yellow-400' : 'text-gray-300'
+                                i < 5 ? "text-yellow-400" : "text-gray-300"
                               }`}
                               fill="currentColor"
                               viewBox="0 0 24 24"
@@ -586,22 +613,36 @@ const Profile: React.FC = () => {
 
                   {/* Recent Activity */}
                   <div className="bg-white rounded-lg p-4 border border-gray-200">
-                    <h5 className="font-medium text-gray-900 mb-3">Recent Activity</h5>
+                    <h5 className="font-medium text-gray-900 mb-3">
+                      Recent Activity
+                    </h5>
                     <div className="space-y-2">
                       <div className="flex items-center space-x-3 text-sm">
                         <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                        <span className="text-gray-600">Completed React mentorship with Sarah Martinez</span>
-                        <span className="text-xs text-gray-400">2 days ago</span>
+                        <span className="text-gray-600">
+                          Completed React mentorship with Sarah Martinez
+                        </span>
+                        <span className="text-xs text-gray-400">
+                          2 days ago
+                        </span>
                       </div>
                       <div className="flex items-center space-x-3 text-sm">
                         <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                        <span className="text-gray-600">Started new UI/UX collaboration</span>
-                        <span className="text-xs text-gray-400">1 week ago</span>
+                        <span className="text-gray-600">
+                          Started new UI/UX collaboration
+                        </span>
+                        <span className="text-xs text-gray-400">
+                          1 week ago
+                        </span>
                       </div>
                       <div className="flex items-center space-x-3 text-sm">
                         <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                        <span className="text-gray-600">Received 5-star rating from Alex Chen</span>
-                        <span className="text-xs text-gray-400">2 weeks ago</span>
+                        <span className="text-gray-600">
+                          Received 5-star rating from Alex Chen
+                        </span>
+                        <span className="text-xs text-gray-400">
+                          2 weeks ago
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -628,21 +669,37 @@ const Profile: React.FC = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-3">
                       <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                        <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        <svg
+                          className="w-5 h-5 text-green-600"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                         </svg>
                         <div>
-                          <div className="text-sm font-medium text-gray-900">Email</div>
-                          <div className="text-sm text-gray-600">{user.email}</div>
+                          <div className="text-sm font-medium text-gray-900">
+                            Email
+                          </div>
+                          <div className="text-sm text-gray-600">
+                            {user.email}
+                          </div>
                         </div>
                       </div>
                       <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                        <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.568 8.16c-.169 1.858-.896 3.391-2.125 4.619-1.228 1.228-2.76 1.956-4.619 2.125-.372.034-.69-.264-.69-.642V9.737c0-.378.318-.676.69-.642 1.858.169 3.391.896 4.619 2.125s1.956 2.76 2.125 4.619c.034.372-.264.69-.642.69h-4.525z"/>
+                        <svg
+                          className="w-5 h-5 text-blue-600"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.568 8.16c-.169 1.858-.896 3.391-2.125 4.619-1.228 1.228-2.76 1.956-4.619 2.125-.372.034-.69-.264-.69-.642V9.737c0-.378.318-.676.69-.642 1.858.169 3.391.896 4.619 2.125s1.956 2.76 2.125 4.619c.034.372-.264.69-.642.69h-4.525z" />
                         </svg>
                         <div>
-                          <div className="text-sm font-medium text-gray-900">Response Time</div>
-                          <div className="text-sm text-green-600">Usually within 2 hours</div>
+                          <div className="text-sm font-medium text-gray-900">
+                            Response Time
+                          </div>
+                          <div className="text-sm text-green-600">
+                            Usually within 2 hours
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -650,10 +707,16 @@ const Profile: React.FC = () => {
                       <Button className="w-full bg-green-600 hover:bg-green-700">
                         💬 Start Conversation
                       </Button>
-                      <Button variant="outline" className="w-full border-blue-500 text-blue-600 hover:bg-blue-50">
+                      <Button
+                        variant="outline"
+                        className="w-full border-blue-500 text-blue-600 hover:bg-blue-50"
+                      >
                         🤝 Propose Skill Trade
                       </Button>
-                      <Button variant="outline" className="w-full border-purple-500 text-purple-600 hover:bg-purple-50">
+                      <Button
+                        variant="outline"
+                        className="w-full border-purple-500 text-purple-600 hover:bg-purple-50"
+                      >
                         ⭐ Leave Review
                       </Button>
                     </div>
@@ -668,8 +731,12 @@ const Profile: React.FC = () => {
                 {user.topSkills && user.topSkills.length > 0 && (
                   <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg p-6">
                     <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                      <svg className="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                      <svg
+                        className="w-5 h-5 text-green-600 mr-2"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                       </svg>
                       Top Expertise
                       <span className="ml-2 bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium">
@@ -678,15 +745,22 @@ const Profile: React.FC = () => {
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                       {user.topSkills.map((skill: string, index: number) => (
-                        <div key={index} className="bg-white border border-green-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                        <div
+                          key={index}
+                          className="bg-white border border-green-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+                        >
                           <div className="flex items-center justify-between mb-3">
-                            <h4 className="font-semibold text-green-800">{skill}</h4>
+                            <h4 className="font-semibold text-green-800">
+                              {skill}
+                            </h4>
                             <div className="flex space-x-1">
                               {[...Array(5)].map((_, i) => (
                                 <svg
                                   key={i}
                                   className={`w-4 h-4 ${
-                                    i < (index % 2 + 4) ? 'text-yellow-400' : 'text-gray-300'
+                                    i < (index % 2) + 4
+                                      ? "text-yellow-400"
+                                      : "text-gray-300"
                                   }`}
                                   fill="currentColor"
                                   viewBox="0 0 24 24"
@@ -699,15 +773,21 @@ const Profile: React.FC = () => {
                           <div className="space-y-2 text-sm text-gray-600">
                             <div className="flex justify-between">
                               <span>Experience:</span>
-                              <span className="font-medium">{index + 2}+ years</span>
+                              <span className="font-medium">
+                                {index + 2}+ years
+                              </span>
                             </div>
                             <div className="flex justify-between">
                               <span>Projects:</span>
-                              <span className="font-medium">{(index + 1) * 5}+ completed</span>
+                              <span className="font-medium">
+                                {(index + 1) * 5}+ completed
+                              </span>
                             </div>
                             <div className="flex justify-between">
                               <span>Availability:</span>
-                              <span className="text-green-600 font-medium">Available</span>
+                              <span className="text-green-600 font-medium">
+                                Available
+                              </span>
                             </div>
                           </div>
                         </div>
@@ -720,8 +800,18 @@ const Profile: React.FC = () => {
                 {user.skillsIHave && user.skillsIHave.length > 0 && (
                   <div className="bg-white border border-gray-200 rounded-lg p-6">
                     <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                      <svg className="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                      <svg
+                        className="w-5 h-5 text-blue-600 mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+                        />
                       </svg>
                       Complete Skill Portfolio
                       <span className="ml-2 bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium">
@@ -740,18 +830,30 @@ const Profile: React.FC = () => {
                         <div className="flex flex-wrap gap-2">
                           {user.skillsIHave
                             .filter((skill: string) =>
-                              ['React', 'JavaScript', 'TypeScript', 'Node.js', 'Python', 'HTML', 'CSS', 'coding', 'programming'].some(tech =>
-                                skill.toLowerCase().includes(tech.toLowerCase())
-                              )
+                              [
+                                "React",
+                                "JavaScript",
+                                "TypeScript",
+                                "Node.js",
+                                "Python",
+                                "HTML",
+                                "CSS",
+                                "coding",
+                                "programming",
+                              ].some((tech) =>
+                                skill
+                                  .toLowerCase()
+                                  .includes(tech.toLowerCase()),
+                              ),
                             )
                             .map((skill: string, index: number) => (
-                            <span
-                              key={index}
-                              className="px-3 py-2 bg-blue-100 text-blue-800 rounded-lg text-sm font-medium border border-blue-200 hover:bg-blue-200 transition-colors"
-                            >
-                              {skill}
-                            </span>
-                          ))}
+                              <span
+                                key={index}
+                                className="px-3 py-2 bg-blue-100 text-blue-800 rounded-lg text-sm font-medium border border-blue-200 hover:bg-blue-200 transition-colors"
+                              >
+                                {skill}
+                              </span>
+                            ))}
                         </div>
                       </div>
 
@@ -764,18 +866,29 @@ const Profile: React.FC = () => {
                         <div className="flex flex-wrap gap-2">
                           {user.skillsIHave
                             .filter((skill: string) =>
-                              ['Design', 'UI', 'UX', 'Figma', 'Photoshop', 'Creative', 'Art', 'Video'].some(creative =>
-                                skill.toLowerCase().includes(creative.toLowerCase())
-                              )
+                              [
+                                "Design",
+                                "UI",
+                                "UX",
+                                "Figma",
+                                "Photoshop",
+                                "Creative",
+                                "Art",
+                                "Video",
+                              ].some((creative) =>
+                                skill
+                                  .toLowerCase()
+                                  .includes(creative.toLowerCase()),
+                              ),
                             )
                             .map((skill: string, index: number) => (
-                            <span
-                              key={index}
-                              className="px-3 py-2 bg-purple-100 text-purple-800 rounded-lg text-sm font-medium border border-purple-200 hover:bg-purple-200 transition-colors"
-                            >
-                              {skill}
-                            </span>
-                          ))}
+                              <span
+                                key={index}
+                                className="px-3 py-2 bg-purple-100 text-purple-800 rounded-lg text-sm font-medium border border-purple-200 hover:bg-purple-200 transition-colors"
+                              >
+                                {skill}
+                              </span>
+                            ))}
                         </div>
                       </div>
 
@@ -787,38 +900,73 @@ const Profile: React.FC = () => {
                         </h4>
                         <div className="flex flex-wrap gap-2">
                           {user.skillsIHave
-                            .filter((skill: string) =>
-                              !['React', 'JavaScript', 'TypeScript', 'Node.js', 'Python', 'HTML', 'CSS', 'coding', 'programming', 'Design', 'UI', 'UX', 'Figma', 'Photoshop', 'Creative', 'Art', 'Video'].some(tech =>
-                                skill.toLowerCase().includes(tech.toLowerCase())
-                              )
+                            .filter(
+                              (skill: string) =>
+                                ![
+                                  "React",
+                                  "JavaScript",
+                                  "TypeScript",
+                                  "Node.js",
+                                  "Python",
+                                  "HTML",
+                                  "CSS",
+                                  "coding",
+                                  "programming",
+                                  "Design",
+                                  "UI",
+                                  "UX",
+                                  "Figma",
+                                  "Photoshop",
+                                  "Creative",
+                                  "Art",
+                                  "Video",
+                                ].some((tech) =>
+                                  skill
+                                    .toLowerCase()
+                                    .includes(tech.toLowerCase()),
+                                ),
                             )
                             .map((skill: string, index: number) => (
-                            <span
-                              key={index}
-                              className="px-3 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium border border-gray-200 hover:bg-gray-200 transition-colors"
-                            >
-                              {skill}
-                            </span>
-                          ))}
+                              <span
+                                key={index}
+                                className="px-3 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium border border-gray-200 hover:bg-gray-200 transition-colors"
+                              >
+                                {skill}
+                              </span>
+                            ))}
                         </div>
                       </div>
                     </div>
 
                     {/* Skill Development Progress */}
                     <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-                      <h4 className="text-md font-medium text-gray-800 mb-3">Skill Development Journey</h4>
+                      <h4 className="text-md font-medium text-gray-800 mb-3">
+                        Skill Development Journey
+                      </h4>
                       <div className="space-y-3">
                         <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-600">Skills Mastered</span>
-                          <span className="text-sm font-medium text-green-600">{user.skillsIHave.length}</span>
+                          <span className="text-sm text-gray-600">
+                            Skills Mastered
+                          </span>
+                          <span className="text-sm font-medium text-green-600">
+                            {user.skillsIHave.length}
+                          </span>
                         </div>
                         <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-600">Hours Teaching</span>
-                          <span className="text-sm font-medium text-blue-600">120+ hours</span>
+                          <span className="text-sm text-gray-600">
+                            Hours Teaching
+                          </span>
+                          <span className="text-sm font-medium text-blue-600">
+                            120+ hours
+                          </span>
                         </div>
                         <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-600">Skills Learned</span>
-                          <span className="text-sm font-medium text-purple-600">8 new skills</span>
+                          <span className="text-sm text-gray-600">
+                            Skills Learned
+                          </span>
+                          <span className="text-sm font-medium text-purple-600">
+                            8 new skills
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -846,7 +994,9 @@ const Profile: React.FC = () => {
                       Build Your Skill Portfolio
                     </h3>
                     <p className="text-gray-600 mb-6 max-w-md mx-auto">
-                      Showcase your expertise and attract the right skill trading opportunities. Start by adding your skills to help others discover what you can offer.
+                      Showcase your expertise and attract the right skill
+                      trading opportunities. Start by adding your skills to help
+                      others discover what you can offer.
                     </p>
                     <div className="space-y-3">
                       <Button
@@ -856,7 +1006,8 @@ const Profile: React.FC = () => {
                         Add Your First Skill
                       </Button>
                       <p className="text-sm text-gray-500">
-                        💡 Tip: Add at least 3-5 skills to get better trading matches
+                        💡 Tip: Add at least 3-5 skills to get better trading
+                        matches
                       </p>
                     </div>
                   </div>
