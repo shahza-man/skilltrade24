@@ -519,38 +519,138 @@ const Profile: React.FC = () => {
                         d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-12V9a2 2 0 00-2-2M5 3v4a2 2 0 002 2h10a2 2 0 002-2V3a2 2 0 00-2-2H7a2 2 0 00-2 2z"
                       />
                     </svg>
-                    Trading Activity
+                    Trading Performance
                   </h4>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                    <div>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center mb-6">
+                    <div className="bg-white rounded-lg p-4 border border-gray-200">
                       <div className="text-2xl font-bold text-green-600">
                         23
                       </div>
                       <div className="text-sm text-gray-600">
                         Trades Completed
                       </div>
+                      <div className="text-xs text-green-600 mt-1">
+                        +3 this month
+                      </div>
                     </div>
-                    <div>
+                    <div className="bg-white rounded-lg p-4 border border-gray-200">
                       <div className="text-2xl font-bold text-blue-600">
                         4.9
                       </div>
                       <div className="text-sm text-gray-600">
                         Average Rating
                       </div>
+                      <div className="flex justify-center mt-1">
+                        <div className="flex space-x-1">
+                          {[...Array(5)].map((_, i) => (
+                            <svg
+                              key={i}
+                              className={`w-3 h-3 ${
+                                i < 5 ? 'text-yellow-400' : 'text-gray-300'
+                              }`}
+                              fill="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                          ))}
+                        </div>
+                      </div>
                     </div>
-                    <div>
+                    <div className="bg-white rounded-lg p-4 border border-gray-200">
                       <div className="text-2xl font-bold text-purple-600">
                         87%
                       </div>
                       <div className="text-sm text-gray-600">Success Rate</div>
+                      <div className="text-xs text-purple-600 mt-1">
+                        Above average
+                      </div>
                     </div>
-                    <div>
+                    <div className="bg-white rounded-lg p-4 border border-gray-200">
                       <div className="text-2xl font-bold text-orange-600">
                         15
                       </div>
                       <div className="text-sm text-gray-600">
                         Active Projects
                       </div>
+                      <div className="text-xs text-orange-600 mt-1">
+                        5 pending
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Recent Activity */}
+                  <div className="bg-white rounded-lg p-4 border border-gray-200">
+                    <h5 className="font-medium text-gray-900 mb-3">Recent Activity</h5>
+                    <div className="space-y-2">
+                      <div className="flex items-center space-x-3 text-sm">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span className="text-gray-600">Completed React mentorship with Sarah Martinez</span>
+                        <span className="text-xs text-gray-400">2 days ago</span>
+                      </div>
+                      <div className="flex items-center space-x-3 text-sm">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                        <span className="text-gray-600">Started new UI/UX collaboration</span>
+                        <span className="text-xs text-gray-400">1 week ago</span>
+                      </div>
+                      <div className="flex items-center space-x-3 text-sm">
+                        <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                        <span className="text-gray-600">Received 5-star rating from Alex Chen</span>
+                        <span className="text-xs text-gray-400">2 weeks ago</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Contact & Social Links */}
+                <div className="bg-white border border-gray-200 rounded-lg p-6">
+                  <h4 className="text-md font-semibold text-gray-900 mb-4 flex items-center">
+                    <svg
+                      className="w-4 h-4 text-blue-600 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"
+                      />
+                    </svg>
+                    Connect & Collaborate
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                        <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        <div>
+                          <div className="text-sm font-medium text-gray-900">Email</div>
+                          <div className="text-sm text-gray-600">{user.email}</div>
+                        </div>
+                      </div>
+                      <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                        <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.568 8.16c-.169 1.858-.896 3.391-2.125 4.619-1.228 1.228-2.76 1.956-4.619 2.125-.372.034-.69-.264-.69-.642V9.737c0-.378.318-.676.69-.642 1.858.169 3.391.896 4.619 2.125s1.956 2.76 2.125 4.619c.034.372-.264.69-.642.69h-4.525z"/>
+                        </svg>
+                        <div>
+                          <div className="text-sm font-medium text-gray-900">Response Time</div>
+                          <div className="text-sm text-green-600">Usually within 2 hours</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      <Button className="w-full bg-green-600 hover:bg-green-700">
+                        💬 Start Conversation
+                      </Button>
+                      <Button variant="outline" className="w-full border-blue-500 text-blue-600 hover:bg-blue-50">
+                        🤝 Propose Skill Trade
+                      </Button>
+                      <Button variant="outline" className="w-full border-purple-500 text-purple-600 hover:bg-purple-50">
+                        ⭐ Leave Review
+                      </Button>
                     </div>
                   </div>
                 </div>
