@@ -190,6 +190,13 @@ const SocialFeed: React.FC = () => {
     });
   };
 
+  const handleMessageUser = (userId: string, userName?: string) => {
+    // Create or find conversation with this user
+    const conversationId = `conv_${userId}`;
+    setSelectedConversationId(conversationId);
+    setIsMessagingOpen(true);
+  };
+
   if (!user) return null;
 
   return (
