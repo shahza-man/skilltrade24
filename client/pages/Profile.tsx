@@ -181,7 +181,7 @@ const Profile: React.FC = () => {
                   className={cn(
                     "py-4 px-2 border-b-2 font-medium text-sm transition-colors",
                     activeTab === tab.id
-                      ? "border-green-500 text-green-600"
+                      ? "border-primary text-primary"
                       : "border-transparent text-gray-500 hover:text-gray-700",
                   )}
                 >
