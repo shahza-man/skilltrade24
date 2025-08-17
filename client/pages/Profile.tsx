@@ -91,9 +91,19 @@ const Profile: React.FC = () => {
                   <h1 className="text-3xl font-bold text-gray-900 mb-2">
                     {user.name}
                   </h1>
-                  <p className="text-gray-600 mb-2">
-                    {user.location || "Location not set"}
-                  </p>
+                  <div className="flex items-center space-x-2 mb-2">
+                    <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    <span className="text-gray-600">{user.location || "Location not set"}</span>
+                  </div>
+                  <div className="flex items-center space-x-2 mb-2">
+                    <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span className="text-gray-600">Joined {new Date().getFullYear() - 1}</span>
+                  </div>
                   <div className="flex items-center space-x-2">
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                     <span className="text-green-600 font-medium">
@@ -110,21 +120,42 @@ const Profile: React.FC = () => {
                 </Button>
               </div>
 
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 py-4 border-t border-gray-200">
-                <div className="text-center">
+              {/* Enhanced Stats */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-4 border-t border-gray-200">
+                <div className="text-center p-3 bg-gray-50 rounded-lg">
                   <div className="text-2xl font-bold text-gray-900">
                     {userPosts.length}
                   </div>
                   <div className="text-gray-600 text-sm">Posts</div>
+                  <div className="text-xs text-green-600 mt-1">+{Math.floor(userPosts.length/3)} this month</div>
                 </div>
-                <div className="text-center">
+                <div className="text-center p-3 bg-green-50 rounded-lg">
                   <div className="text-2xl font-bold text-green-600">4.9</div>
                   <div className="text-gray-600 text-sm">Rating</div>
+                  <div className="flex justify-center mt-1">
+                    <div className="flex space-x-1">
+                      {[...Array(5)].map((_, i) => (
+                        <svg
+                          key={i}
+                          className="w-3 h-3 text-yellow-400"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <div className="text-center">
+                <div className="text-center p-3 bg-blue-50 rounded-lg">
                   <div className="text-2xl font-bold text-blue-600">23</div>
                   <div className="text-gray-600 text-sm">Trades</div>
+                  <div className="text-xs text-blue-600 mt-1">87% success rate</div>
+                </div>
+                <div className="text-center p-3 bg-purple-50 rounded-lg">
+                  <div className="text-2xl font-bold text-purple-600">{user.skillsIHave?.length || 0}</div>
+                  <div className="text-gray-600 text-sm">Skills</div>
+                  <div className="text-xs text-purple-600 mt-1">{user.topSkills?.length || 0} featured</div>
                 </div>
               </div>
             </div>
