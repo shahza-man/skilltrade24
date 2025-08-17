@@ -163,7 +163,7 @@ const Profile: React.FC = () => {
         </div>
 
         {/* Navigation Tabs */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 mb-6">
+        <div className="bg-white border border-gray-200 mb-8">
           <div className="border-b border-gray-200">
             <nav className="flex space-x-8 px-8">
               {[
