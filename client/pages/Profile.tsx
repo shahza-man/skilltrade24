@@ -113,13 +113,13 @@ const Profile: React.FC = () => {
 
                   {/* Skills Display */}
                   {user.skillsIHave && user.skillsIHave.length > 0 && (
-                    <div className="mt-3">
-                      <h3 className="text-sm font-medium text-gray-700 mb-2">My Skills:</h3>
+                    <div className="mt-4">
+                      <h3 className="text-sm font-medium text-gray-700 mb-3">Skills</h3>
                       <div className="flex flex-wrap gap-2">
                         {user.skillsIHave.map((skill: string, index: number) => (
                           <span
                             key={index}
-                            className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium"
+                            className="px-3 py-1 border border-gray-200 text-gray-700 text-sm"
                           >
                             {skill}
                           </span>
