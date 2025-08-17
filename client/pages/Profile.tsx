@@ -137,42 +137,25 @@ const Profile: React.FC = () => {
                 </Button>
               </div>
 
-              {/* Enhanced Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-4 border-t border-gray-200">
-                <div className="text-center p-3 bg-gray-50 rounded-lg">
-                  <div className="text-2xl font-bold text-gray-900">
+              {/* Stats */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 pt-6 border-t border-gray-200">
+                <div className="text-center">
+                  <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
                     {userPosts.length}
                   </div>
                   <div className="text-gray-600 text-sm">Posts</div>
-                  <div className="text-xs text-green-600 mt-1">+{Math.floor(userPosts.length/3)} this month</div>
                 </div>
-                <div className="text-center p-3 bg-green-50 rounded-lg">
-                  <div className="text-2xl font-bold text-green-600">4.9</div>
+                <div className="text-center">
+                  <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">4.9</div>
                   <div className="text-gray-600 text-sm">Rating</div>
-                  <div className="flex justify-center mt-1">
-                    <div className="flex space-x-1">
-                      {[...Array(5)].map((_, i) => (
-                        <svg
-                          key={i}
-                          className="w-3 h-3 text-yellow-400"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                      ))}
-                    </div>
-                  </div>
                 </div>
-                <div className="text-center p-3 bg-blue-50 rounded-lg">
-                  <div className="text-2xl font-bold text-blue-600">23</div>
+                <div className="text-center">
+                  <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">23</div>
                   <div className="text-gray-600 text-sm">Trades</div>
-                  <div className="text-xs text-blue-600 mt-1">87% success rate</div>
                 </div>
-                <div className="text-center p-3 bg-purple-50 rounded-lg">
-                  <div className="text-2xl font-bold text-purple-600">{user.skillsIHave?.length || 0}</div>
+                <div className="text-center">
+                  <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">{user.skillsIHave?.length || 0}</div>
                   <div className="text-gray-600 text-sm">Skills</div>
-                  <div className="text-xs text-purple-600 mt-1">{user.topSkills?.length || 0} featured</div>
                 </div>
               </div>
             </div>
