@@ -740,6 +740,9 @@ const SocialFeed: React.FC = () => {
         initialConversationId={selectedConversationId || undefined}
         currentUserId="currentUser"
       />
+
+      {/* Floating Message Button */}
+      <FloatingMessageButton />
     </div>
   );
 };
