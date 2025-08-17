@@ -231,9 +231,9 @@ export const MessagingInterface: React.FC<MessagingInterfaceProps> = ({
     <div className="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center p-4">
       <div className="bg-white rounded-xl shadow-2xl w-full max-w-6xl h-[85vh] flex overflow-hidden border border-gray-200">
         {/* Sidebar - Conversations List */}
-        <div className="w-80 border-r border-gray-200 flex flex-col">
+        <div className="w-80 border-r border-gray-200 flex flex-col bg-gray-50">
           {/* Header */}
-          <div className="p-4 border-b border-gray-200">
+          <div className="p-4 border-b border-gray-200 bg-white">
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-lg font-semibold text-gray-900">Messages</h2>
               <button
