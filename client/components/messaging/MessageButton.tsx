@@ -61,8 +61,8 @@ export const MessageButton: React.FC<MessageButtonProps> = ({
       variant={variant}
       className={cn(
         buttonSizes[size],
-        "font-medium transition-all duration-200",
-        variant === "default" && "bg-primary hover:bg-primary/90 text-white",
+        "font-medium transition-all duration-200 hover:shadow-md active:scale-95",
+        variant === "default" && "bg-primary hover:bg-primary/90 text-white shadow-sm",
         variant === "outline" && "border-primary text-primary hover:bg-primary hover:text-white",
         variant === "ghost" && "text-primary hover:bg-primary/10",
         className
