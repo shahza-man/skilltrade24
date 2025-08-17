@@ -15,6 +15,7 @@ import SocialFeed from "./pages/SocialFeed";
 import CreatePost from "./pages/CreatePost";
 import Profile from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";
+import Messages from "./pages/Messages";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
