@@ -506,7 +506,7 @@ const SocialFeed: React.FC = () => {
                   {/* Post Actions */}
                   <div className="px-4 py-3 border-t border-gray-100">
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-6">
+                      <div className="flex items-center space-x-4">
                         <button
                           onClick={() => handleLike(post.id)}
                           className={cn(
