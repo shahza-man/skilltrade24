@@ -54,14 +54,16 @@ export default function Index() {
               <Button
                 onClick={() => {
                   const isAuth = localStorage.getItem("isAuthenticated");
-                  if (isAuth !== "true") {
+                  if (isAuth === "true") {
+                    window.location.href = "/messages";
+                  } else {
                     window.location.href = "/create-profile";
                   }
                 }}
                 variant="outline"
                 className="border-gray-200 text-gray-700 px-8 py-3 text-base"
               >
-                Get Started →
+                💬 Messages →
               </Button>
             </div>
           </div>
