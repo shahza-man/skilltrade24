@@ -55,80 +55,82 @@ const Profile: React.FC = () => {
       </div>
 
       <div className="max-w-5xl mx-auto">
-        {/* Clean Profile Layout */}
-        <div className="mb-8">
+        {/* Professional Profile Layout */}
+        <div className="bg-white border border-border mb-8">
           {/* Banner */}
           <div className="bg-primary h-32"></div>
 
           {/* Profile Content */}
-          <div className="bg-white border-x border-b border-border px-6 py-6">
-            {/* Profile Picture - positioned at top */}
-            <div className="flex justify-center -mt-16 mb-6">
+          <div className="px-6 py-6">
+            <div className="flex items-start space-x-6 -mt-16">
+              {/* Profile Picture */}
               <img
                 src={
                   user.profilePicture ||
                   "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
                 }
                 alt={user.name}
-                className="w-24 h-24 rounded-full border-4 border-white object-cover shadow-lg"
+                className="w-24 h-24 rounded-full border-4 border-white object-cover shadow-lg flex-shrink-0"
               />
-            </div>
 
-            {/* Profile Info - centered below banner */}
-            <div className="text-center mb-6">
-              <div className="flex items-center justify-center mb-4">
-                <h1 className="text-2xl font-bold text-foreground">{user.name}</h1>
-                <Button onClick={() => navigate("/edit-profile")} variant="outline" className="ml-4">
-                  Edit Profile
-                </Button>
-              </div>
-
-              <div className="flex items-center justify-center space-x-4 text-sm text-muted-foreground mb-3">
-                <span>{user.location || "Location not set"}</span>
-                <span>•</span>
-                <span>Joined {new Date().getFullYear() - 1}</span>
-              </div>
-
-              <div className="flex items-center justify-center space-x-2">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
-                <span className="text-sm text-primary font-medium">Available for skill trades</span>
-              </div>
-            </div>
-
-            {/* Skills */}
-            {user.skillsIHave && user.skillsIHave.length > 0 && (
-              <div className="mb-6">
-                <h3 className="text-sm font-medium text-foreground mb-3">Skills</h3>
-                <div className="flex flex-wrap gap-2">
-                  {user.skillsIHave.map((skill: string, index: number) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 bg-secondary text-secondary-foreground text-sm rounded"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+              {/* Profile Info */}
+              <div className="flex-1 mt-16">
+                <div className="flex items-center justify-between mb-2">
+                  <h1 className="text-3xl font-bold text-foreground">{user.name}</h1>
+                  <Button onClick={() => navigate("/edit-profile")} variant="outline">
+                    Edit Profile
+                  </Button>
                 </div>
+
+                <div className="flex items-center space-x-4 text-sm text-muted-foreground mb-2">
+                  <span>{user.location || "Location not set"}</span>
+                  <span>•</span>
+                  <span>Joined {new Date().getFullYear() - 1}</span>
+                </div>
+
+                <div className="flex items-center space-x-2 mb-4">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-primary font-medium">Available for skill trades</span>
+                </div>
+
+                {/* Skills */}
+                {user.skillsIHave && user.skillsIHave.length > 0 && (
+                  <div className="mb-4">
+                    <h3 className="text-sm font-medium text-foreground mb-2">Skills</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {user.skillsIHave.map((skill: string, index: number) => (
+                        <span
+                          key={index}
+                          className="px-3 py-1 bg-secondary text-secondary-foreground text-sm rounded"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
-            )}
+            </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-4 gap-6 mb-6">
-              <div className="text-center">
-                <div className="text-xl font-bold text-foreground">{userPosts.length}</div>
-                <div className="text-xs text-muted-foreground">Posts</div>
-              </div>
-              <div className="text-center">
-                <div className="text-xl font-bold text-foreground">4.9</div>
-                <div className="text-xs text-muted-foreground">Rating</div>
-              </div>
-              <div className="text-center">
-                <div className="text-xl font-bold text-foreground">23</div>
-                <div className="text-xs text-muted-foreground">Trades</div>
-              </div>
-              <div className="text-center">
-                <div className="text-xl font-bold text-foreground">{user.skillsIHave?.length || 0}</div>
-                <div className="text-xs text-muted-foreground">Skills</div>
+            <div className="border-t border-border pt-6 mt-6">
+              <div className="grid grid-cols-4 gap-6">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-foreground">{userPosts.length}</div>
+                  <div className="text-sm text-muted-foreground">Posts</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-foreground">4.9</div>
+                  <div className="text-sm text-muted-foreground">Rating</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-foreground">23</div>
+                  <div className="text-sm text-muted-foreground">Trades</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-foreground">{user.skillsIHave?.length || 0}</div>
+                  <div className="text-sm text-muted-foreground">Skills</div>
+                </div>
               </div>
             </div>
           </div>
