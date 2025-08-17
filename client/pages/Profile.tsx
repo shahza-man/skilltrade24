@@ -31,92 +31,133 @@ const Profile: React.FC = () => {
   if (!user) return null;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-white border-b border-border sticky top-0 z-50">
-        <div className="max-w-5xl mx-auto px-6 py-4">
+      <div className="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-4">
               <button
                 onClick={() => navigate("/feed")}
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-gray-600 hover:text-green-600 transition-colors p-2 hover:bg-gray-100 rounded-lg"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
                 </svg>
               </button>
-              <h1 className="text-xl font-semibold text-foreground">Profile</h1>
+              <h1 className="text-xl font-bold text-gray-900">Profile</h1>
             </div>
 
-            <Button onClick={() => navigate("/create-post")}>
+            <Button
+              onClick={() => navigate("/create-post")}
+              className="bg-green-600 hover:bg-green-700"
+            >
               New Post
             </Button>
           </div>
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 py-8">
-        {/* Discord-style Profile Banner */}
-        <div className="bg-primary h-32 mb-16"></div>
+      <div className="max-w-4xl mx-auto py-8 px-4">
+        {/* Profile Header */}
+        <div className="bg-white border border-gray-200 p-8 mb-8">
+          <div className="flex flex-col md:flex-row items-start md:items-center space-y-6 md:space-y-0 md:space-x-8">
+            {/* Profile Picture */}
+            <div className="flex-shrink-0">
+              <img
+                src={
+                  user.profilePicture ||
+                  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+                }
+                alt={user.name}
+                className="w-32 h-32 rounded-full border-4 border-green-200 object-cover"
+              />
+            </div>
 
-        {/* Profile Info */}
-        <div className="relative px-6 -mt-20">
-          <div className="flex items-end space-x-6 mb-6">
-            <img
-              src={
-                user.profilePicture ||
-                "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
-              }
-              alt={user.name}
-              className="w-24 h-24 rounded-full border-4 border-background object-cover"
-            />
-            <div className="flex-1 pb-2">
-              <h1 className="text-2xl font-bold text-foreground mb-1">{user.name}</h1>
-              <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-                <span>{user.location || "Location not set"}</span>
-                <span>•</span>
-                <span>Joined {new Date().getFullYear() - 1}</span>
+            {/* Profile Info */}
+            <div className="flex-1">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                <div>
+                  <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                    {user.name}
+                  </h1>
+                  <div className="flex items-center space-x-2 mb-2">
+                    <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    <span className="text-gray-600">{user.location || "Location not set"}</span>
+                  </div>
+                  <div className="flex items-center space-x-2 mb-2">
+                    <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span className="text-gray-600">Joined {new Date().getFullYear() - 1}</span>
+                  </div>
+                  <div className="flex items-center space-x-2 mb-3">
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <span className="text-green-600 font-medium">
+                      Available for skill trades
+                    </span>
+                  </div>
+
+                  {/* Skills Display */}
+                  {user.skillsIHave && user.skillsIHave.length > 0 && (
+                    <div className="mt-4">
+                      <h3 className="text-sm font-medium text-gray-700 mb-3">Skills</h3>
+                      <div className="flex flex-wrap gap-2">
+                        {user.skillsIHave.map((skill: string, index: number) => (
+                          <span
+                            key={index}
+                            className="px-3 py-1 border border-gray-200 text-gray-700 text-sm"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <Button
+                  onClick={() => navigate("/edit-profile")}
+                  variant="outline"
+                  className="mt-4 sm:mt-0"
+                >
+                  Edit Profile
+                </Button>
               </div>
-            </div>
-            <Button onClick={() => navigate("/edit-profile")} variant="outline">
-              Edit Profile
-            </Button>
-          </div>
 
-          {/* Skills */}
-          {user.skillsIHave && user.skillsIHave.length > 0 && (
-            <div className="mb-6">
-              <h3 className="text-sm font-medium text-foreground mb-3">Skills</h3>
-              <div className="flex flex-wrap gap-2">
-                {user.skillsIHave.map((skill: string, index: number) => (
-                  <span
-                    key={index}
-                    className="px-3 py-1 bg-secondary text-secondary-foreground text-sm rounded"
-                  >
-                    {skill}
-                  </span>
-                ))}
+              {/* Stats */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 pt-6 border-t border-gray-200">
+                <div className="text-center">
+                  <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
+                    {userPosts.length}
+                  </div>
+                  <div className="text-gray-600 text-sm">Posts</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">4.9</div>
+                  <div className="text-gray-600 text-sm">Rating</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">23</div>
+                  <div className="text-gray-600 text-sm">Trades</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">{user.skillsIHave?.length || 0}</div>
+                  <div className="text-gray-600 text-sm">Skills</div>
+                </div>
               </div>
-            </div>
-          )}
-
-          {/* Stats */}
-          <div className="grid grid-cols-4 gap-6 mb-8">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-foreground">{userPosts.length}</div>
-              <div className="text-xs text-muted-foreground">Posts</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-foreground">4.9</div>
-              <div className="text-xs text-muted-foreground">Rating</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-foreground">23</div>
-              <div className="text-xs text-muted-foreground">Trades</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-foreground">{user.skillsIHave?.length || 0}</div>
-              <div className="text-xs text-muted-foreground">Skills</div>
             </div>
           </div>
         </div>
