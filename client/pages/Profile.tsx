@@ -104,12 +104,29 @@ const Profile: React.FC = () => {
                     </svg>
                     <span className="text-gray-600">Joined {new Date().getFullYear() - 1}</span>
                   </div>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2 mb-3">
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                     <span className="text-green-600 font-medium">
                       Available for skill trades
                     </span>
                   </div>
+
+                  {/* Skills Display */}
+                  {user.skillsIHave && user.skillsIHave.length > 0 && (
+                    <div className="mt-3">
+                      <h3 className="text-sm font-medium text-gray-700 mb-2">My Skills:</h3>
+                      <div className="flex flex-wrap gap-2">
+                        {user.skillsIHave.map((skill: string, index: number) => (
+                          <span
+                            key={index}
+                            className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
                 <Button
                   onClick={() => navigate("/edit-profile")}
