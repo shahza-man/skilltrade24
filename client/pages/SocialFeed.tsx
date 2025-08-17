@@ -575,15 +575,29 @@ const SocialFeed: React.FC = () => {
                       </button>
                     </div>
 
-                    <div className="mt-2">
-                      <span className="font-semibold text-sm">
-                        {post.likes} likes
-                      </span>
-                      {post.comments > 0 && (
-                        <p className="text-gray-500 text-sm mt-1">
-                          View all {post.comments} comments
-                        </p>
-                      )}
+                    <div className="mt-3 flex items-center justify-between">
+                      <div>
+                        <span className="font-semibold text-sm">
+                          {post.likes} likes
+                        </span>
+                        {post.comments > 0 && (
+                          <p className="text-gray-500 text-sm mt-1">
+                            View all {post.comments} comments
+                          </p>
+                        )}
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <MessageButton
+                          userId={post.user.username}
+                          userName={post.user.name}
+                          onClick={handleMessageUser}
+                          variant="outline"
+                          size="sm"
+                          className="border-primary text-primary hover:bg-primary hover:text-white"
+                        >
+                          💬 Message
+                        </MessageButton>
+                      </div>
                     </div>
                   </div>
                 </div>
