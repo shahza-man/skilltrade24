@@ -320,6 +320,13 @@ export const MessagingInterface: React.FC<MessagingInterfaceProps> = ({
               {/* Chat Header */}
               <div className="p-4 border-b border-gray-200 flex items-center justify-between">
                 <div className="flex items-center space-x-3">
+                  <button
+                    onClick={() => setSelectedConversation(null)}
+                    className="lg:hidden text-gray-400 hover:text-gray-600 transition-colors p-1 hover:bg-gray-100 rounded-lg"
+                    title="Back to conversations"
+                  >
+                    <ArrowLeft className="w-5 h-5" />
+                  </button>
                   <div className="relative">
                     <img
                       src={currentConversation.participantAvatar}
