@@ -1,7 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { X, Send, Paperclip, Smile, Phone, Video, Info, Search, MoreVertical, ArrowLeft } from "lucide-react";
+import {
+  X,
+  Send,
+  Paperclip,
+  Smile,
+  Phone,
+  Video,
+  Info,
+  Search,
+  MoreVertical,
+  ArrowLeft,
+} from "lucide-react";
 
 interface Message {
   id: string;
@@ -34,50 +45,56 @@ const mockConversations: Conversation[] = [
     id: "conv1",
     participantId: "user1",
     participantName: "Alex Chen",
-    participantAvatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    participantAvatar:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
     lastMessage: {
       id: "msg1",
       senderId: "user1",
-      content: "Hi! I'd love to discuss the React development trade opportunity.",
+      content:
+        "Hi! I'd love to discuss the React development trade opportunity.",
       timestamp: new Date(Date.now() - 1000 * 60 * 5),
       type: "text",
-      read: false
+      read: false,
     },
     unreadCount: 2,
-    online: true
+    online: true,
   },
   {
     id: "conv2",
     participantId: "user2",
     participantName: "Sarah Martinez",
-    participantAvatar: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=150&h=150&fit=crop&crop=face",
+    participantAvatar:
+      "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=150&h=150&fit=crop&crop=face",
     lastMessage: {
       id: "msg2",
       senderId: "currentUser",
-      content: "Thanks for the design feedback! When can we start the skill exchange?",
+      content:
+        "Thanks for the design feedback! When can we start the skill exchange?",
       timestamp: new Date(Date.now() - 1000 * 60 * 30),
       type: "text",
-      read: true
+      read: true,
     },
     unreadCount: 0,
-    online: false
+    online: false,
   },
   {
     id: "conv3",
     participantId: "user3",
     participantName: "Mike Johnson",
-    participantAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    participantAvatar:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
     lastMessage: {
       id: "msg3",
       senderId: "user3",
-      content: "The project collaboration sounds amazing! Let's set up a time to chat.",
+      content:
+        "The project collaboration sounds amazing! Let's set up a time to chat.",
       timestamp: new Date(Date.now() - 1000 * 60 * 120),
       type: "text",
-      read: false
+      read: false,
     },
     unreadCount: 1,
-    online: true
-  }
+    online: true,
+  },
 ];
 
 const mockMessages: { [key: string]: Message[] } = {
@@ -88,74 +105,83 @@ const mockMessages: { [key: string]: Message[] } = {
       content: "Hi there! I saw your post about React development skills.",
       timestamp: new Date(Date.now() - 1000 * 60 * 60),
       type: "text",
-      read: true
+      read: true,
     },
     {
       id: "msg1_2",
       senderId: "currentUser",
-      content: "Hello! Yes, I'd be happy to help with React development. What kind of UI/UX design skills are you offering?",
+      content:
+        "Hello! Yes, I'd be happy to help with React development. What kind of UI/UX design skills are you offering?",
       timestamp: new Date(Date.now() - 1000 * 60 * 50),
       type: "text",
-      read: true
+      read: true,
     },
     {
       id: "msg1_3",
       senderId: "user1",
-      content: "I have 5+ years of experience in Figma, Adobe Creative Suite, and user research. I can help you design better interfaces for your projects.",
+      content:
+        "I have 5+ years of experience in Figma, Adobe Creative Suite, and user research. I can help you design better interfaces for your projects.",
       timestamp: new Date(Date.now() - 1000 * 60 * 40),
       type: "text",
-      read: true
+      read: true,
     },
     {
       id: "msg1_4",
       senderId: "user1",
-      content: "Hi! I'd love to discuss the React development trade opportunity.",
+      content:
+        "Hi! I'd love to discuss the React development trade opportunity.",
       timestamp: new Date(Date.now() - 1000 * 60 * 5),
       type: "text",
-      read: false
-    }
+      read: false,
+    },
   ],
   conv2: [
     {
       id: "msg2_1",
       senderId: "user2",
-      content: "Your portfolio looks amazing! I love the attention to detail in your React components.",
+      content:
+        "Your portfolio looks amazing! I love the attention to detail in your React components.",
       timestamp: new Date(Date.now() - 1000 * 60 * 120),
       type: "text",
-      read: true
+      read: true,
     },
     {
       id: "msg2_2",
       senderId: "currentUser",
-      content: "Thanks for the design feedback! When can we start the skill exchange?",
+      content:
+        "Thanks for the design feedback! When can we start the skill exchange?",
       timestamp: new Date(Date.now() - 1000 * 60 * 30),
       type: "text",
-      read: true
-    }
+      read: true,
+    },
   ],
   conv3: [
     {
       id: "msg3_1",
       senderId: "user3",
-      content: "The project collaboration sounds amazing! Let's set up a time to chat.",
+      content:
+        "The project collaboration sounds amazing! Let's set up a time to chat.",
       timestamp: new Date(Date.now() - 1000 * 60 * 120),
       type: "text",
-      read: false
-    }
-  ]
+      read: false,
+    },
+  ],
 };
 
 export const MessagingInterface: React.FC<MessagingInterfaceProps> = ({
   isOpen,
   onClose,
   initialConversationId,
-  currentUserId
+  currentUserId,
 }) => {
-  const [conversations, setConversations] = useState<Conversation[]>(mockConversations);
-  const [selectedConversation, setSelectedConversation] = useState<string | null>(
-    initialConversationId || conversations[0]?.id || null
+  const [conversations, setConversations] =
+    useState<Conversation[]>(mockConversations);
+  const [selectedConversation, setSelectedConversation] = useState<
+    string | null
+  >(initialConversationId || conversations[0]?.id || null);
+  const [messages, setMessages] = useState<{ [key: string]: Message[] }>(
+    mockMessages,
   );
-  const [messages, setMessages] = useState<{ [key: string]: Message[] }>(mockMessages);
   const [newMessage, setNewMessage] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -177,21 +203,21 @@ export const MessagingInterface: React.FC<MessagingInterfaceProps> = ({
       content: newMessage.trim(),
       timestamp: new Date(),
       type: "text",
-      read: true
+      read: true,
     };
 
-    setMessages(prev => ({
+    setMessages((prev) => ({
       ...prev,
-      [selectedConversation]: [...(prev[selectedConversation] || []), message]
+      [selectedConversation]: [...(prev[selectedConversation] || []), message],
     }));
 
     // Update conversation's last message
-    setConversations(prev =>
-      prev.map(conv =>
+    setConversations((prev) =>
+      prev.map((conv) =>
         conv.id === selectedConversation
           ? { ...conv, lastMessage: message }
-          : conv
-      )
+          : conv,
+      ),
     );
 
     setNewMessage("");
@@ -218,12 +244,16 @@ export const MessagingInterface: React.FC<MessagingInterfaceProps> = ({
     return date.toLocaleDateString();
   };
 
-  const filteredConversations = conversations.filter(conv =>
-    conv.participantName.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredConversations = conversations.filter((conv) =>
+    conv.participantName.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
-  const currentConversation = conversations.find(conv => conv.id === selectedConversation);
-  const currentMessages = selectedConversation ? messages[selectedConversation] || [] : [];
+  const currentConversation = conversations.find(
+    (conv) => conv.id === selectedConversation,
+  );
+  const currentMessages = selectedConversation
+    ? messages[selectedConversation] || []
+    : [];
 
   if (!isOpen) return null;
 
@@ -231,11 +261,13 @@ export const MessagingInterface: React.FC<MessagingInterfaceProps> = ({
     <div className="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center p-4">
       <div className="bg-white rounded-xl shadow-2xl w-full max-w-6xl h-[85vh] flex overflow-hidden border border-gray-200">
         {/* Sidebar - Conversations List */}
-        <div className={cn(
-          "w-80 border-r border-gray-200 flex flex-col bg-gray-50",
-          "lg:flex",
-          selectedConversation ? "hidden lg:flex" : "flex"
-        )}>
+        <div
+          className={cn(
+            "w-80 border-r border-gray-200 flex flex-col bg-gray-50",
+            "lg:flex",
+            selectedConversation ? "hidden lg:flex" : "flex",
+          )}
+        >
           {/* Header */}
           <div className="p-4 border-b border-gray-200 bg-white">
             <div className="flex items-center justify-between mb-3">
@@ -247,7 +279,9 @@ export const MessagingInterface: React.FC<MessagingInterfaceProps> = ({
                 >
                   <ArrowLeft className="w-5 h-5" />
                 </button>
-                <h2 className="text-lg font-semibold text-gray-900">Messages</h2>
+                <h2 className="text-lg font-semibold text-gray-900">
+                  Messages
+                </h2>
               </div>
               <button
                 onClick={onClose}
@@ -271,13 +305,14 @@ export const MessagingInterface: React.FC<MessagingInterfaceProps> = ({
 
           {/* Conversations List */}
           <div className="flex-1 overflow-y-auto">
-            {filteredConversations.map(conversation => (
+            {filteredConversations.map((conversation) => (
               <button
                 key={conversation.id}
                 onClick={() => setSelectedConversation(conversation.id)}
                 className={cn(
                   "w-full p-4 flex items-center space-x-3 hover:bg-gray-50 transition-colors border-b border-gray-100",
-                  selectedConversation === conversation.id && "bg-primary/5 border-r-2 border-r-primary"
+                  selectedConversation === conversation.id &&
+                    "bg-primary/5 border-r-2 border-r-primary",
                 )}
               >
                 <div className="relative">
@@ -318,10 +353,12 @@ export const MessagingInterface: React.FC<MessagingInterfaceProps> = ({
         </div>
 
         {/* Main Chat Area */}
-        <div className={cn(
-          "flex-1 flex flex-col",
-          !selectedConversation && "hidden lg:flex"
-        )}>
+        <div
+          className={cn(
+            "flex-1 flex flex-col",
+            !selectedConversation && "hidden lg:flex",
+          )}
+        >
           {currentConversation ? (
             <>
               {/* Chat Header */}
@@ -371,12 +408,14 @@ export const MessagingInterface: React.FC<MessagingInterfaceProps> = ({
 
               {/* Messages */}
               <div className="flex-1 overflow-y-auto p-6 space-y-4 bg-gray-50">
-                {currentMessages.map(message => (
+                {currentMessages.map((message) => (
                   <div
                     key={message.id}
                     className={cn(
                       "flex",
-                      message.senderId === currentUserId ? "justify-end" : "justify-start"
+                      message.senderId === currentUserId
+                        ? "justify-end"
+                        : "justify-start",
                     )}
                   >
                     <div
@@ -384,7 +423,7 @@ export const MessagingInterface: React.FC<MessagingInterfaceProps> = ({
                         "max-w-xs lg:max-w-md px-4 py-3 rounded-2xl shadow-sm",
                         message.senderId === currentUserId
                           ? "bg-primary text-white ml-4"
-                          : "bg-white text-gray-900 border border-gray-200 mr-4"
+                          : "bg-white text-gray-900 border border-gray-200 mr-4",
                       )}
                     >
                       <p className="text-sm">{message.content}</p>
@@ -393,7 +432,7 @@ export const MessagingInterface: React.FC<MessagingInterfaceProps> = ({
                           "text-xs mt-1",
                           message.senderId === currentUserId
                             ? "text-primary-foreground/70"
-                            : "text-gray-500"
+                            : "text-gray-500",
                         )}
                       >
                         {formatTime(message.timestamp)}

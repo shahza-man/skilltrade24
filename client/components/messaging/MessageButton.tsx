@@ -20,7 +20,7 @@ export const MessageButton: React.FC<MessageButtonProps> = ({
   size = "md",
   className,
   onClick,
-  children
+  children,
 }) => {
   const handleClick = () => {
     onClick(userId, userName);
@@ -29,13 +29,13 @@ export const MessageButton: React.FC<MessageButtonProps> = ({
   const buttonSizes = {
     sm: "h-8 px-3 text-xs",
     md: "h-9 px-4 text-sm",
-    lg: "h-10 px-6 text-sm"
+    lg: "h-10 px-6 text-sm",
   };
 
   const iconSizes = {
     sm: "w-3 h-3",
     md: "w-4 h-4",
-    lg: "w-5 h-5"
+    lg: "w-5 h-5",
   };
 
   if (variant === "icon") {
@@ -46,7 +46,7 @@ export const MessageButton: React.FC<MessageButtonProps> = ({
         size="sm"
         className={cn(
           "rounded-full p-2 hover:bg-primary/10 hover:text-primary transition-colors",
-          className
+          className,
         )}
         title={`Message ${userName || "user"}`}
       >
@@ -62,10 +62,12 @@ export const MessageButton: React.FC<MessageButtonProps> = ({
       className={cn(
         buttonSizes[size],
         "font-medium transition-all duration-200 hover:shadow-md active:scale-95",
-        variant === "default" && "bg-primary hover:bg-primary/90 text-white shadow-sm",
-        variant === "outline" && "border-primary text-primary hover:bg-primary hover:text-white",
+        variant === "default" &&
+          "bg-primary hover:bg-primary/90 text-white shadow-sm",
+        variant === "outline" &&
+          "border-primary text-primary hover:bg-primary hover:text-white",
         variant === "ghost" && "text-primary hover:bg-primary/10",
-        className
+        className,
       )}
     >
       <MessageCircle className={cn(iconSizes[size], children && "mr-2")} />
