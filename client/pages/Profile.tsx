@@ -94,12 +94,23 @@ const Profile: React.FC = () => {
                   <h1 className="text-3xl font-bold text-foreground">
                     {user.name}
                   </h1>
-                  <Button
-                    onClick={() => navigate("/edit-profile")}
-                    variant="outline"
-                  >
-                    Edit Profile
-                  </Button>
+                  <div className="flex items-center space-x-3">
+                    <MessageButton
+                      userId={user.id || "current-user"}
+                      userName={user.name}
+                      onClick={handleMessageUser}
+                      variant="default"
+                      className="bg-primary hover:bg-primary/90 text-white"
+                    >
+                      💬 Message
+                    </MessageButton>
+                    <Button
+                      onClick={() => navigate("/edit-profile")}
+                      variant="outline"
+                    >
+                      Edit Profile
+                    </Button>
+                  </div>
                 </div>
 
                 <div className="flex items-center space-x-4 text-sm text-muted-foreground mb-2">
