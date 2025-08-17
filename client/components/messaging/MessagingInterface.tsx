@@ -346,7 +346,7 @@ export const MessagingInterface: React.FC<MessagingInterfaceProps> = ({
               </div>
 
               {/* Messages */}
-              <div className="flex-1 overflow-y-auto p-4 space-y-4">
+              <div className="flex-1 overflow-y-auto p-6 space-y-4 bg-gray-50">
                 {currentMessages.map(message => (
                   <div
                     key={message.id}
