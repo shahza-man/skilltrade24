@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { useNavigate } from "react-router-dom";
+import { MessagingInterface } from "@/components/messaging/MessagingInterface";
+import { MessageButton } from "@/components/messaging/MessageButton";
 
 interface Post {
   id: number;
