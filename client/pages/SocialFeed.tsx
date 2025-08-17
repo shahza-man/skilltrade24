@@ -725,6 +725,14 @@ const SocialFeed: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Messaging Interface */}
+      <MessagingInterface
+        isOpen={isMessagingOpen}
+        onClose={() => setIsMessagingOpen(false)}
+        initialConversationId={selectedConversationId || undefined}
+        currentUserId="currentUser"
+      />
     </div>
   );
 };
