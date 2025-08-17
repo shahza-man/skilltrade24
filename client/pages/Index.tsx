@@ -70,8 +70,8 @@ export default function Index() {
           <div className="relative">
             <div className="flex items-center justify-center">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F12436fd4193d40d8af711aebe05da9ec%2F6dd3e1b9b842414c9492290afccb7d78?format=webp&width=800"
-                alt="Revenue operations illustration showing people working with charts, graphs and financial data"
+                src="https://cdn.builder.io/api/v1/image/assets%2F5bdae9b2904d4e6f8e00b8c0f2e5670e%2Fc9d4ba38360a440b90b602f6915db14e?format=webp&width=800"
+                alt="WorkTrade skill exchange illustration showing people collaborating and trading skills"
                 className="w-full h-auto max-w-lg rounded-lg"
               />
             </div>
