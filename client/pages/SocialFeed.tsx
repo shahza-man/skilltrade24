@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { useNavigate } from "react-router-dom";
 import { MessagingInterface } from "@/components/messaging/MessagingInterface";
 import { MessageButton } from "@/components/messaging/MessageButton";
+import { FloatingMessageButton } from "@/components/FloatingMessageButton";
 
 interface Post {
   id: number;
