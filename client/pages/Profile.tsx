@@ -31,6 +31,10 @@ const Profile: React.FC = () => {
     setUserPosts(posts);
   }, [navigate]);
 
+  const handleMessageUser = (userId: string, userName?: string) => {
+    setIsMessagingOpen(true);
+  };
+
   if (!user) return null;
 
   return (
