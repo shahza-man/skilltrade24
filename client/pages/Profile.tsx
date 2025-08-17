@@ -528,47 +528,172 @@ const Profile: React.FC = () => {
 
             {activeTab === "skills" && (
               <div className="space-y-6">
+                {/* Top Skills Showcase */}
                 {user.topSkills && user.topSkills.length > 0 && (
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                      Top Skills
+                  <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                      <svg className="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                      </svg>
+                      Top Expertise
+                      <span className="ml-2 bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium">
+                        Featured
+                      </span>
                     </h3>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                       {user.topSkills.map((skill: string, index: number) => (
-                        <span
-                          key={index}
-                          className="px-4 py-2 bg-green-100 text-green-800 rounded-lg font-medium"
-                        >
-                          {skill}
-                        </span>
+                        <div key={index} className="bg-white border border-green-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                          <div className="flex items-center justify-between mb-3">
+                            <h4 className="font-semibold text-green-800">{skill}</h4>
+                            <div className="flex space-x-1">
+                              {[...Array(5)].map((_, i) => (
+                                <svg
+                                  key={i}
+                                  className={`w-4 h-4 ${
+                                    i < (index % 2 + 4) ? 'text-yellow-400' : 'text-gray-300'
+                                  }`}
+                                  fill="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                              ))}
+                            </div>
+                          </div>
+                          <div className="space-y-2 text-sm text-gray-600">
+                            <div className="flex justify-between">
+                              <span>Experience:</span>
+                              <span className="font-medium">{index + 2}+ years</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>Projects:</span>
+                              <span className="font-medium">{(index + 1) * 5}+ completed</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>Availability:</span>
+                              <span className="text-green-600 font-medium">Available</span>
+                            </div>
+                          </div>
+                        </div>
                       ))}
                     </div>
                   </div>
                 )}
 
+                {/* All Skills with Categories */}
                 {user.skillsIHave && user.skillsIHave.length > 0 && (
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                      All Skills
+                  <div className="bg-white border border-gray-200 rounded-lg p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                      <svg className="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                      </svg>
+                      Complete Skill Portfolio
+                      <span className="ml-2 bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium">
+                        {user.skillsIHave.length} skills
+                      </span>
                     </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {user.skillsIHave.map((skill: string, index: number) => (
-                        <span
-                          key={index}
-                          className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
-                        >
-                          {skill}
-                        </span>
-                      ))}
+
+                    {/* Skill Categories */}
+                    <div className="space-y-4">
+                      {/* Technical Skills */}
+                      <div>
+                        <h4 className="text-md font-medium text-gray-800 mb-2 flex items-center">
+                          <div className="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
+                          Technical Skills
+                        </h4>
+                        <div className="flex flex-wrap gap-2">
+                          {user.skillsIHave
+                            .filter((skill: string) =>
+                              ['React', 'JavaScript', 'TypeScript', 'Node.js', 'Python', 'HTML', 'CSS', 'coding', 'programming'].some(tech =>
+                                skill.toLowerCase().includes(tech.toLowerCase())
+                              )
+                            )
+                            .map((skill: string, index: number) => (
+                            <span
+                              key={index}
+                              className="px-3 py-2 bg-blue-100 text-blue-800 rounded-lg text-sm font-medium border border-blue-200 hover:bg-blue-200 transition-colors"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Creative Skills */}
+                      <div>
+                        <h4 className="text-md font-medium text-gray-800 mb-2 flex items-center">
+                          <div className="w-3 h-3 bg-purple-500 rounded-full mr-2"></div>
+                          Creative Skills
+                        </h4>
+                        <div className="flex flex-wrap gap-2">
+                          {user.skillsIHave
+                            .filter((skill: string) =>
+                              ['Design', 'UI', 'UX', 'Figma', 'Photoshop', 'Creative', 'Art', 'Video'].some(creative =>
+                                skill.toLowerCase().includes(creative.toLowerCase())
+                              )
+                            )
+                            .map((skill: string, index: number) => (
+                            <span
+                              key={index}
+                              className="px-3 py-2 bg-purple-100 text-purple-800 rounded-lg text-sm font-medium border border-purple-200 hover:bg-purple-200 transition-colors"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Other Skills */}
+                      <div>
+                        <h4 className="text-md font-medium text-gray-800 mb-2 flex items-center">
+                          <div className="w-3 h-3 bg-gray-500 rounded-full mr-2"></div>
+                          Other Skills
+                        </h4>
+                        <div className="flex flex-wrap gap-2">
+                          {user.skillsIHave
+                            .filter((skill: string) =>
+                              !['React', 'JavaScript', 'TypeScript', 'Node.js', 'Python', 'HTML', 'CSS', 'coding', 'programming', 'Design', 'UI', 'UX', 'Figma', 'Photoshop', 'Creative', 'Art', 'Video'].some(tech =>
+                                skill.toLowerCase().includes(tech.toLowerCase())
+                              )
+                            )
+                            .map((skill: string, index: number) => (
+                            <span
+                              key={index}
+                              className="px-3 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium border border-gray-200 hover:bg-gray-200 transition-colors"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Skill Development Progress */}
+                    <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+                      <h4 className="text-md font-medium text-gray-800 mb-3">Skill Development Journey</h4>
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-600">Skills Mastered</span>
+                          <span className="text-sm font-medium text-green-600">{user.skillsIHave.length}</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-600">Hours Teaching</span>
+                          <span className="text-sm font-medium text-blue-600">120+ hours</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-600">Skills Learned</span>
+                          <span className="text-sm font-medium text-purple-600">8 new skills</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 )}
 
                 {(!user.skillsIHave || user.skillsIHave.length === 0) && (
-                  <div className="text-center py-12">
-                    <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="text-center py-12 bg-white border border-gray-200 rounded-lg">
+                    <div className="w-20 h-20 bg-gradient-to-br from-green-100 to-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
                       <svg
-                        className="w-8 h-8 text-gray-400"
+                        className="w-10 h-10 text-green-600"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -577,16 +702,27 @@ const Profile: React.FC = () => {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           strokeWidth={2}
-                          d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+                          d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                         />
                       </svg>
                     </div>
-                    <h3 className="text-lg font-medium text-gray-900 mb-2">
-                      No skills listed
+                    <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                      Build Your Skill Portfolio
                     </h3>
-                    <p className="text-gray-600">
-                      Add your skills to help others find you for trades
+                    <p className="text-gray-600 mb-6 max-w-md mx-auto">
+                      Showcase your expertise and attract the right skill trading opportunities. Start by adding your skills to help others discover what you can offer.
                     </p>
+                    <div className="space-y-3">
+                      <Button
+                        onClick={() => navigate("/edit-profile")}
+                        className="bg-green-600 hover:bg-green-700 px-6"
+                      >
+                        Add Your First Skill
+                      </Button>
+                      <p className="text-sm text-gray-500">
+                        💡 Tip: Add at least 3-5 skills to get better trading matches
+                      </p>
+                    </div>
                   </div>
                 )}
               </div>
