@@ -233,7 +233,10 @@ const SocialFeed: React.FC = () => {
               <button className="text-gray-600 hover:text-green-600 font-medium transition-colors">
                 My Trades
               </button>
-              <button className="text-gray-600 hover:text-green-600 font-medium transition-colors">
+              <button
+                onClick={() => navigate('/messages')}
+                className="text-gray-600 hover:text-green-600 font-medium transition-colors"
+              >
                 Messages
               </button>
             </nav>
