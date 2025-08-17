@@ -12,6 +12,7 @@ const Profile: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"posts" | "about" | "skills">(
     "posts",
   );
+  const [isMessagingOpen, setIsMessagingOpen] = useState(false);
 
   useEffect(() => {
     const userData = localStorage.getItem("userProfile");
