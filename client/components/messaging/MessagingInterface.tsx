@@ -357,10 +357,10 @@ export const MessagingInterface: React.FC<MessagingInterfaceProps> = ({
                   >
                     <div
                       className={cn(
-                        "max-w-xs lg:max-w-md px-4 py-2 rounded-2xl",
+                        "max-w-xs lg:max-w-md px-4 py-3 rounded-2xl shadow-sm",
                         message.senderId === currentUserId
-                          ? "bg-primary text-white"
-                          : "bg-gray-100 text-gray-900"
+                          ? "bg-primary text-white ml-4"
+                          : "bg-white text-gray-900 border border-gray-200 mr-4"
                       )}
                     >
                       <p className="text-sm">{message.content}</p>
