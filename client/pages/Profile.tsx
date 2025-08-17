@@ -55,42 +55,44 @@ const Profile: React.FC = () => {
       </div>
 
       <div className="max-w-5xl mx-auto">
-        {/* Discord-style Profile */}
-        <div className="relative mb-8">
+        {/* Clean Profile Layout */}
+        <div className="mb-8">
           {/* Banner */}
           <div className="bg-primary h-32"></div>
 
           {/* Profile Content */}
-          <div className="relative px-6 pb-6">
-            <div className="flex items-end space-x-6 -mt-16 mb-6">
-              {/* Profile Picture */}
+          <div className="bg-white border-x border-b border-border px-6 py-6">
+            {/* Profile Picture - positioned at top */}
+            <div className="flex justify-center -mt-16 mb-6">
               <img
                 src={
                   user.profilePicture ||
                   "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
                 }
                 alt={user.name}
-                className="w-24 h-24 rounded-full border-4 border-background object-cover bg-background"
+                className="w-24 h-24 rounded-full border-4 border-white object-cover shadow-lg"
               />
+            </div>
 
-              {/* Profile Info */}
-              <div className="flex-1 pb-2">
-                <h1 className="text-2xl font-bold text-foreground mb-1">{user.name}</h1>
-                <div className="flex items-center space-x-4 text-sm text-muted-foreground mb-2">
-                  <span>{user.location || "Location not set"}</span>
-                  <span>•</span>
-                  <span>Joined {new Date().getFullYear() - 1}</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="text-sm text-primary font-medium">Available for skill trades</span>
-                </div>
+            {/* Profile Info - centered below banner */}
+            <div className="text-center mb-6">
+              <div className="flex items-center justify-center mb-4">
+                <h1 className="text-2xl font-bold text-foreground">{user.name}</h1>
+                <Button onClick={() => navigate("/edit-profile")} variant="outline" className="ml-4">
+                  Edit Profile
+                </Button>
               </div>
 
-              {/* Edit Button */}
-              <Button onClick={() => navigate("/edit-profile")} variant="outline" className="mb-2">
-                Edit Profile
-              </Button>
+              <div className="flex items-center justify-center space-x-4 text-sm text-muted-foreground mb-3">
+                <span>{user.location || "Location not set"}</span>
+                <span>•</span>
+                <span>Joined {new Date().getFullYear() - 1}</span>
+              </div>
+
+              <div className="flex items-center justify-center space-x-2">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <span className="text-sm text-primary font-medium">Available for skill trades</span>
+              </div>
             </div>
 
             {/* Skills */}
