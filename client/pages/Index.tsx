@@ -180,130 +180,98 @@ export default function Index() {
       <ServicesShowcase />
 
       {/* Join the Feed Section */}
-      <section className="py-20 lg:py-32 bg-gradient-to-br from-primary/5 via-white to-primary/10">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <section className="bg-black text-white py-20 lg:py-32 relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-1 h-1 bg-white rounded-full animate-ping"></div>
+          <div className="absolute bottom-32 left-1/4 w-3 h-3 bg-primary/30 rounded-full animate-bounce"></div>
+          <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-primary rounded-full animate-pulse"></div>
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
             <div className="space-y-8">
               <div className="space-y-6">
-                <div className="inline-flex items-center px-4 py-2 bg-primary/10 text-primary text-sm font-medium rounded-full">
-                  <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
-                  Join Our Community
+                <div className="text-primary/60 text-sm font-mono tracking-wider">
+                  {'>>>'} LIVE_FEED.connect()
                 </div>
 
-                <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight">
-                  Connect, Learn &
-                  <span className="text-primary block">Grow Together</span>
+                <h2 className="text-4xl lg:text-5xl font-bold leading-tight">
+                  Drop into the
+                  <span className="block text-primary bg-gradient-to-r from-primary to-green-400 bg-clip-text text-transparent">
+                    live action
+                  </span>
                 </h2>
 
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Join thousands of skilled professionals sharing knowledge,
-                  trading expertise, and building meaningful connections. Your
-                  next collaboration is just one click away.
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  Real conversations. Real skills. Real opportunities.
+                  <br />Skip the wait, dive straight into the flow.
                 </p>
               </div>
 
-              {/* Features Grid */}
-              <div className="grid grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <svg
-                      className="w-6 h-6 text-primary"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                      />
-                    </svg>
-                  </div>
-                  <h3 className="font-semibold text-gray-900">
-                    Active Community
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    20,000+ professionals ready to share and learn
-                  </p>
+              {/* Live Activity Preview */}
+              <div className="space-y-3 bg-gray-900/50 rounded-lg p-6 border border-gray-800">
+                <div className="flex items-center space-x-2 text-xs text-gray-400 font-mono">
+                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                  <span>LIVE ACTIVITY</span>
                 </div>
 
-                <div className="space-y-2">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <svg
-                      className="w-6 h-6 text-primary"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                      />
-                    </svg>
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3 text-sm">
+                    <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-xs font-bold">
+                      A
+                    </div>
+                    <div className="flex-1">
+                      <span className="text-white">Alex</span>
+                      <span className="text-gray-400 ml-2">trading React for Design skills</span>
+                    </div>
+                    <span className="text-primary text-xs">2m ago</span>
                   </div>
-                  <h3 className="font-semibold text-gray-900">
-                    Real-time Chat
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    Instant messaging with skill traders worldwide
-                  </p>
-                </div>
 
-                <div className="space-y-2">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <svg
-                      className="w-6 h-6 text-primary"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                      />
-                    </svg>
+                  <div className="flex items-center space-x-3 text-sm">
+                    <div className="w-8 h-8 bg-gradient-to-br from-pink-500 to-red-600 rounded-full flex items-center justify-center text-xs font-bold">
+                      S
+                    </div>
+                    <div className="flex-1">
+                      <span className="text-white">Sarah</span>
+                      <span className="text-gray-400 ml-2">started a Python mentorship</span>
+                    </div>
+                    <span className="text-primary text-xs">5m ago</span>
                   </div>
-                  <h3 className="font-semibold text-gray-900">
-                    Skill Matching
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    Smart algorithms to find perfect trading partners
-                  </p>
-                </div>
 
-                <div className="space-y-2">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <svg
-                      className="w-6 h-6 text-primary"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13 10V3L4 14h7v7l9-11h-7z"
-                      />
-                    </svg>
+                  <div className="flex items-center space-x-3 text-sm">
+                    <div className="w-8 h-8 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-full flex items-center justify-center text-xs font-bold">
+                      M
+                    </div>
+                    <div className="flex-1">
+                      <span className="text-white">Mike</span>
+                      <span className="text-gray-400 ml-2">looking for UI/UX collaborators</span>
+                    </div>
+                    <span className="text-primary text-xs">8m ago</span>
                   </div>
-                  <h3 className="font-semibold text-gray-900">
-                    Instant Access
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    Join conversations and start trading immediately
-                  </p>
                 </div>
               </div>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-6 text-center">
+                <div>
+                  <div className="text-2xl font-bold text-white">2.8K</div>
+                  <div className="text-xs text-gray-400 uppercase tracking-wide">Active Now</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-primary">143</div>
+                  <div className="text-xs text-gray-400 uppercase tracking-wide">Trades Today</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-white">98%</div>
+                  <div className="text-xs text-gray-400 uppercase tracking-wide">Match Rate</div>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="space-y-4">
                 <Button
                   onClick={() => {
                     const isAuth = localStorage.getItem("isAuthenticated");
@@ -313,106 +281,56 @@ export default function Index() {
                       window.location.href = "/create-profile";
                     }
                   }}
-                  className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  className="w-full bg-primary hover:bg-primary/90 text-black font-bold py-4 text-lg transform hover:scale-105 transition-all duration-200 shadow-2xl shadow-primary/25"
                 >
-                  🚀 Join the Feed Now
+                  JUMP IN →
                 </Button>
-                <button
-                  onClick={() => {
-                    const isAuth = localStorage.getItem("isAuthenticated");
-                    if (isAuth === "true") {
-                      window.location.href = "/feed";
-                    } else {
-                      window.location.href = "/create-profile";
-                    }
-                  }}
-                  className="group flex items-center justify-center space-x-2 text-primary hover:text-primary/80 font-medium transition-colors duration-200"
-                >
-                  <span>Explore Live Activity</span>
-                  <svg
-                    className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </button>
-              </div>
 
-              {/* Social Proof */}
-              <div className="flex items-center space-x-4 pt-4 border-t border-gray-200">
-                <div className="flex -space-x-2">
-                  <img
-                    className="w-8 h-8 rounded-full border-2 border-white"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
-                    alt="User 1"
-                  />
-                  <img
-                    className="w-8 h-8 rounded-full border-2 border-white"
-                    src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=150&h=150&fit=crop&crop=face"
-                    alt="User 2"
-                  />
-                  <img
-                    className="w-8 h-8 rounded-full border-2 border-white"
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
-                    alt="User 3"
-                  />
-                  <div className="w-8 h-8 rounded-full border-2 border-white bg-primary text-white text-xs flex items-center justify-center font-semibold">
-                    +5K
-                  </div>
-                </div>
-                <div className="text-sm text-gray-600">
-                  <span className="font-semibold text-gray-900">
-                    2,847 traders
-                  </span>{" "}
-                  active this week
+                <div className="text-center text-gray-400 text-sm">
+                  No setup, no waiting • Join in 30 seconds
                 </div>
               </div>
             </div>
 
             {/* Right Image */}
             <div className="relative">
-              <div className="relative">
-                {/* Background decoration */}
-                <div className="absolute -top-8 -right-8 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
-                <div className="absolute -bottom-8 -left-8 w-24 h-24 bg-primary/5 rounded-full blur-2xl"></div>
+              {/* Glowing background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent rounded-3xl blur-3xl"></div>
 
-                {/* Main image container */}
-                <div className="relative bg-white rounded-2xl shadow-2xl p-8 transform hover:scale-105 transition-transform duration-300">
+              {/* Main container */}
+              <div className="relative bg-gray-900 rounded-2xl p-6 border border-gray-800 overflow-hidden">
+                {/* Top bar like a browser */}
+                <div className="flex items-center space-x-2 mb-6 pb-4 border-b border-gray-800">
+                  <div className="flex space-x-2">
+                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                  </div>
+                  <div className="flex-1 bg-gray-800 rounded px-4 py-1 text-xs text-gray-400 font-mono">
+                    skilltrade.com/feed
+                  </div>
+                </div>
+
+                {/* Your image */}
+                <div className="relative">
                   <img
                     src="https://cdn.builder.io/api/v1/image/assets%2F5bdae9b2904d4e6f8e00b8c0f2e5670e%2F2a09d0e9c02848efb3eac0ac53678054?format=webp&width=800"
-                    alt="Professional collaboration and skill sharing"
+                    alt="Live skill trading interface"
                     className="w-full h-auto rounded-lg"
                   />
 
-                  {/* Floating activity cards */}
-                  <div className="absolute -top-4 -left-4 bg-white rounded-lg shadow-lg p-3 border border-gray-100">
+                  {/* Overlay UI elements */}
+                  <div className="absolute top-4 right-4 bg-black/80 backdrop-blur rounded-lg px-3 py-2">
                     <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                      <span className="text-xs font-medium text-gray-700">
-                        143 trades today
-                      </span>
+                      <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                      <span className="text-primary text-xs font-mono">LIVE</span>
                     </div>
                   </div>
 
-                  <div className="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-lg p-3 border border-gray-100">
-                    <div className="flex items-center space-x-2">
-                      <svg
-                        className="w-4 h-4 text-primary"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                      </svg>
-                      <span className="text-xs font-medium text-gray-700">
-                        4.9 avg rating
-                      </span>
+                  <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur rounded-lg px-3 py-2">
+                    <div className="text-white text-xs">
+                      <div className="font-semibold">Active Traders</div>
+                      <div className="text-primary">2,847 online</div>
                     </div>
                   </div>
                 </div>
