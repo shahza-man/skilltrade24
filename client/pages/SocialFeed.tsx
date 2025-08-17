@@ -308,7 +308,10 @@ const SocialFeed: React.FC = () => {
                 🤝 My Trades
               </button>
               <button
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  navigate('/messages');
+                  setIsMobileMenuOpen(false);
+                }}
                 className="block w-full text-left px-4 py-3 text-gray-600 hover:text-green-600 hover:bg-gray-50 rounded-lg transition-colors"
               >
                 💬 Messages
