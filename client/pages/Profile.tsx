@@ -1029,6 +1029,13 @@ const Profile: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Messaging Interface */}
+      <MessagingInterface
+        isOpen={isMessagingOpen}
+        onClose={() => setIsMessagingOpen(false)}
+        currentUserId="currentUser"
+      />
     </div>
   );
 };
