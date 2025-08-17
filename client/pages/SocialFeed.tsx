@@ -239,14 +239,19 @@ const SocialFeed: React.FC = () => {
               </button>
 
               {/* User Profile */}
-              <img
-                src={
-                  user.profilePicture ||
-                  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
-                }
-                alt={user.name}
-                className="w-8 h-8 lg:w-10 lg:h-10 rounded-full border-2 border-gray-200"
-              />
+              <button
+                onClick={() => navigate('/profile')}
+                className="hover:opacity-80 transition-opacity"
+              >
+                <img
+                  src={
+                    user.profilePicture ||
+                    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+                  }
+                  alt={user.name}
+                  className="w-8 h-8 lg:w-10 lg:h-10 rounded-full border-2 border-gray-200"
+                />
+              </button>
 
               {/* Mobile Menu Button */}
               <button
@@ -297,7 +302,13 @@ const SocialFeed: React.FC = () => {
 
               {/* Mobile User Info */}
               <div className="pt-4 border-t border-gray-200 mt-4">
-                <div className="flex items-center space-x-3 px-4 py-2 bg-gray-50 rounded-lg">
+                <button
+                  onClick={() => {
+                    navigate('/profile');
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="flex items-center space-x-3 px-4 py-2 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors w-full text-left"
+                >
                   <img
                     src={
                       user.profilePicture ||
@@ -310,7 +321,7 @@ const SocialFeed: React.FC = () => {
                     <div className="text-sm font-semibold text-gray-900">{user.name}</div>
                     <div className="text-xs text-gray-500">{user.location || "Skill Trader"}</div>
                   </div>
-                </div>
+                </button>
               </div>
             </nav>
           </div>
@@ -376,16 +387,24 @@ const SocialFeed: React.FC = () => {
                   {/* Post Header */}
                   <div className="flex items-center justify-between p-4 pb-3">
                     <div className="flex items-center space-x-3">
-                      <img
-                        src={post.user.avatar}
-                        alt={post.user.name}
-                        className="w-10 h-10 rounded-full"
-                      />
+                      <button
+                        onClick={() => navigate('/profile')}
+                        className="hover:opacity-80 transition-opacity"
+                      >
+                        <img
+                          src={post.user.avatar}
+                          alt={post.user.name}
+                          className="w-10 h-10 rounded-full"
+                        />
+                      </button>
                       <div>
                         <div className="flex items-center space-x-1">
-                          <span className="font-semibold text-sm">
+                          <button
+                            onClick={() => navigate('/profile')}
+                            className="font-semibold text-sm hover:text-green-600 transition-colors"
+                          >
                             {post.user.username}
-                          </span>
+                          </button>
                           {post.user.verified && (
                             <svg
                               className="w-4 h-4 text-blue-500"
@@ -565,14 +584,19 @@ const SocialFeed: React.FC = () => {
               {/* Your Profile */}
               <div className="bg-white border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center space-x-3 mb-4">
-                  <img
-                    src={
-                      user.profilePicture ||
-                      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
-                    }
-                    alt={user.name}
-                    className="w-16 h-16 rounded-full border-2 border-green-200"
-                  />
+                  <button
+                    onClick={() => navigate('/profile')}
+                    className="hover:opacity-80 transition-opacity"
+                  >
+                    <img
+                      src={
+                        user.profilePicture ||
+                        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+                      }
+                      alt={user.name}
+                      className="w-16 h-16 rounded-full border-2 border-green-200"
+                    />
+                  </button>
                   <div>
                     <h3 className="font-bold text-gray-900">{user.name}</h3>
                     <p className="text-gray-600 text-sm">
