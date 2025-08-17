@@ -228,8 +228,8 @@ export const MessagingInterface: React.FC<MessagingInterfaceProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-2xl w-full max-w-6xl h-[80vh] flex">
+    <div className="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center p-4">
+      <div className="bg-white rounded-xl shadow-2xl w-full max-w-6xl h-[85vh] flex overflow-hidden border border-gray-200">
         {/* Sidebar - Conversations List */}
         <div className="w-80 border-r border-gray-200 flex flex-col">
           {/* Header */}
