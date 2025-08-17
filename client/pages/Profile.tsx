@@ -415,20 +415,66 @@ const Profile: React.FC = () => {
                       />
                     </svg>
                     Skills I Offer
+                    <span className="ml-2 bg-green-100 text-green-800 px-2 py-0.5 rounded-full text-xs font-medium">
+                      {user.skillsIHave?.length || 0} skills
+                    </span>
                   </h4>
                   {user.skillsIHave && user.skillsIHave.length > 0 ? (
-                    <div className="flex flex-wrap gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {user.skillsIHave.map((skill: string, index: number) => (
-                        <span
+                        <div
                           key={index}
-                          className="px-3 py-2 bg-green-100 text-green-800 rounded-lg text-sm font-medium"
+                          className="flex items-center justify-between p-3 bg-green-50 border border-green-200 rounded-lg"
                         >
-                          {skill}
-                        </span>
+                          <span className="text-green-800 font-medium">{skill}</span>
+                          <div className="flex items-center space-x-1">
+                            <div className="flex space-x-1">
+                              {[...Array(5)].map((_, i) => (
+                                <svg
+                                  key={i}
+                                  className={`w-3 h-3 ${
+                                    i < (index % 3 + 3) ? 'text-yellow-400' : 'text-gray-300'
+                                  }`}
+                                  fill="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                              ))}
+                            </div>
+                            <span className="text-xs text-green-600 font-medium">
+                              {index % 3 + 3}/5
+                            </span>
+                          </div>
+                        </div>
                       ))}
                     </div>
                   ) : (
-                    <p className="text-gray-500 italic">No skills listed yet</p>
+                    <div className="text-center py-8">
+                      <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg
+                          className="w-8 h-8 text-gray-400"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                          />
+                        </svg>
+                      </div>
+                      <p className="text-gray-500 italic mb-3">No skills listed yet</p>
+                      <Button
+                        onClick={() => navigate("/edit-profile")}
+                        variant="outline"
+                        className="border-green-500 text-green-600 hover:bg-green-50"
+                      >
+                        Add Skills
+                      </Button>
+                    </div>
                   )}
                 </div>
 
