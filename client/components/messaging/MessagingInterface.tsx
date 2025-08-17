@@ -235,10 +235,20 @@ export const MessagingInterface: React.FC<MessagingInterfaceProps> = ({
           {/* Header */}
           <div className="p-4 border-b border-gray-200 bg-white">
             <div className="flex items-center justify-between mb-3">
-              <h2 className="text-lg font-semibold text-gray-900">Messages</h2>
+              <div className="flex items-center space-x-3">
+                <button
+                  onClick={onClose}
+                  className="text-gray-400 hover:text-gray-600 transition-colors p-1 hover:bg-gray-100 rounded-lg"
+                  title="Go back"
+                >
+                  <ArrowLeft className="w-5 h-5" />
+                </button>
+                <h2 className="text-lg font-semibold text-gray-900">Messages</h2>
+              </div>
               <button
                 onClick={onClose}
-                className="text-gray-400 hover:text-gray-600 transition-colors"
+                className="text-gray-400 hover:text-gray-600 transition-colors p-1 hover:bg-gray-100 rounded-lg"
+                title="Close"
               >
                 <X className="w-5 h-5" />
               </button>
