@@ -711,9 +711,14 @@ const Profile: React.FC = () => {
                       </div>
                     </div>
                     <div className="space-y-3">
-                      <Button className="w-full bg-green-600 hover:bg-green-700">
+                      <MessageButton
+                        userId={user.id || "current-user"}
+                        userName={user.name}
+                        onClick={handleMessageUser}
+                        className="w-full bg-green-600 hover:bg-green-700"
+                      >
                         💬 Start Conversation
-                      </Button>
+                      </MessageButton>
                       <Button
                         variant="outline"
                         className="w-full border-blue-500 text-blue-600 hover:bg-blue-50"
