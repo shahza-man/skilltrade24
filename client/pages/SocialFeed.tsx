@@ -551,10 +551,12 @@ const SocialFeed: React.FC = () => {
                           userId={post.user.username}
                           userName={post.user.name}
                           onClick={handleMessageUser}
-                          variant="icon"
-                          size="md"
-                          className="text-gray-700 hover:text-primary"
-                        />
+                          variant="ghost"
+                          size="sm"
+                          className="text-gray-700 hover:text-primary hover:bg-primary/10 px-3 py-1 text-sm"
+                        >
+                          Message
+                        </MessageButton>
                       </div>
                       <button className="text-gray-700 hover:text-gray-900">
                         <svg
