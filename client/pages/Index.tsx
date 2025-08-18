@@ -264,7 +264,7 @@ export default function Index() {
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets%2F5bdae9b2904d4e6f8e00b8c0f2e5670e%2Fb7836dc880764791bff4469dbed7278b?format=webp&width=800"
                   alt="AI-powered skill matching connecting professionals for seamless collaboration"
-                  className="w-full h-auto max-w-lg rounded-lg"
+                  className="w-full h-auto max-w-md rounded-lg"
                 />
               </div>
             </div>
@@ -275,7 +275,7 @@ export default function Index() {
               <div className="flex items-center space-x-2 text-sm">
                 <span className="text-primary">✓</span>
                 <span className="text-gray-300">
-                  AI-Powered Smart Matching
+                  AI-Powered Smart Matching Technology
                 </span>
               </div>
 
@@ -283,14 +283,30 @@ export default function Index() {
               <div className="space-y-6">
                 <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
                   Smart AI finds your perfect{" "}
-                  <span className="block">trade partners</span>
+                  <span className="block">trade partners instantly</span>
                 </h1>
 
-                <p className="text-lg text-gray-300 max-w-lg leading-relaxed">
-                  The AI in our WorkTrade platform acts as a smart trade-matching assistant.
-                  Instead of wasting time searching manually, users instantly get personalized
-                  trade suggestions.
+                <p className="text-xl text-gray-300 max-w-2xl leading-relaxed">
+                  The AI in our WorkTrade platform acts as a smart trade-matching assistant that learns from your preferences.
+                  Instead of wasting time searching manually, users instantly get personalized trade suggestions.
+                  Our advanced algorithm connects you with the right people who are looking for your skills or offering exactly what you need.
                 </p>
+              </div>
+
+              {/* Additional Features */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary">98%</div>
+                  <div className="text-gray-300 text-sm">Match Accuracy</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-white">{'<30s'}</div>
+                  <div className="text-gray-300 text-sm">Match Time</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary">24/7</div>
+                  <div className="text-gray-300 text-sm">AI Available</div>
+                </div>
               </div>
 
               {/* CTA Buttons */}
