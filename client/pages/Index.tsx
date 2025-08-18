@@ -12,9 +12,17 @@ export default function Index() {
 
       {/* Hero Section */}
       <main className="container mx-auto px-6 py-16 lg:py-24">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <motion.div
+          className="grid lg:grid-cols-2 gap-12 items-center"
+          variants={staggerContainer}
+          initial="initial"
+          animate="animate"
+        >
           {/* Left Content */}
-          <div className="space-y-8">
+          <motion.div
+            className="space-y-8"
+            variants={fadeInLeft}
+          >
             {/* Success Metric */}
             <div className="flex items-center space-x-2 text-sm">
               <span className="text-primary">✓</span>
@@ -68,10 +76,13 @@ export default function Index() {
                 💬 Messages →
               </Button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Illustration */}
-          <div className="relative">
+          <motion.div
+            className="relative"
+            variants={fadeInRight}
+          >
             <div className="flex items-center justify-center">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F5bdae9b2904d4e6f8e00b8c0f2e5670e%2Fc9d4ba38360a440b90b602f6915db14e?format=webp&width=800"
@@ -79,12 +90,18 @@ export default function Index() {
                 className="w-full h-auto max-w-lg rounded-lg"
               />
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </main>
 
       {/* Stats Section */}
-      <section className="bg-black text-white py-16 lg:py-24">
+      <motion.section
+        className="bg-black text-white py-16 lg:py-24"
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerContainer}
+      >
         <div className="container mx-auto px-6">
           {/* Sliding Text Animation - At top of about us */}
           <div className="overflow-hidden whitespace-nowrap border-b border-gray-800 pb-8 mb-16">
@@ -116,9 +133,15 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            className="grid lg:grid-cols-2 gap-12 items-center"
+            variants={staggerContainer}
+          >
             {/* Left Content */}
-            <div className="space-y-6">
+            <motion.div
+              className="space-y-6"
+              variants={fadeInLeft}
+            >
               <div className="flex items-center space-x-2 text-sm">
                 <span className="text-primary">✓</span>
                 <span className="text-gray-300">ABOUT US</span>
@@ -138,52 +161,70 @@ export default function Index() {
                 leveraging decades of industry expertise to stay ahead of the
                 curve.
               </p>
-            </div>
+            </motion.div>
 
             {/* Right Image - Placeholder for now */}
-            <div className="relative">
+            <motion.div
+              className="relative"
+              variants={fadeInRight}
+            >
               <div className="bg-gray-800 rounded-lg aspect-video flex items-center justify-center">
                 <span className="text-gray-400">Conference Room Image</span>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Stats Row */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-16 lg:mt-24">
-            <div className="text-center">
+          <motion.div
+            className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-16 lg:mt-24"
+            variants={staggerContainer}
+          >
+            <motion.div className="text-center" variants={fadeInUp}>
               <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
                 500+
               </div>
               <div className="text-gray-300 text-sm">Projects Completed</div>
-            </div>
-            <div className="text-center">
+            </motion.div>
+            <motion.div className="text-center" variants={fadeInUp}>
               <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
                 10+
               </div>
               <div className="text-gray-300 text-sm">Years of Experience</div>
-            </div>
-            <div className="text-center">
+            </motion.div>
+            <motion.div className="text-center" variants={fadeInUp}>
               <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
                 110+
               </div>
               <div className="text-gray-300 text-sm">Employees</div>
-            </div>
-            <div className="text-center">
+            </motion.div>
+            <motion.div className="text-center" variants={fadeInUp}>
               <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
                 2K+
               </div>
               <div className="text-gray-300 text-sm">Happy Customers</div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Join Community Section */}
-      <section className="bg-black text-white py-16 lg:py-24">
+      <motion.section
+        className="bg-black text-white py-16 lg:py-24"
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerContainer}
+      >
         <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            className="grid lg:grid-cols-2 gap-12 items-center"
+            variants={staggerContainer}
+          >
             {/* Left Content */}
-            <div className="space-y-8">
+            <motion.div
+              className="space-y-8"
+              variants={fadeInLeft}
+            >
               {/* Success Metric */}
               <div className="flex items-center space-x-2 text-sm">
                 <span className="text-primary">✓</span>
@@ -236,10 +277,13 @@ export default function Index() {
                   Browse Skills →
                 </Button>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right Illustration */}
-            <div className="relative">
+            <motion.div
+              className="relative"
+              variants={fadeInRight}
+            >
               <div className="flex items-center justify-center">
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets%2F5bdae9b2904d4e6f8e00b8c0f2e5670e%2F2a09d0e9c02848efb3eac0ac53678054?format=webp&width=800"
@@ -247,20 +291,32 @@ export default function Index() {
                   className="w-full h-auto max-w-lg rounded-lg"
                 />
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Services Showcase Section */}
       <ServicesShowcase />
 
       {/* AI Trade-Matching Section */}
-      <section className="bg-black text-white py-16 lg:py-24">
+      <motion.section
+        className="bg-black text-white py-16 lg:py-24"
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerContainer}
+      >
         <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            className="grid lg:grid-cols-2 gap-12 items-center"
+            variants={staggerContainer}
+          >
             {/* Left Image */}
-            <div className="relative">
+            <motion.div
+              className="relative"
+              variants={fadeInLeft}
+            >
               <div className="flex items-center justify-center">
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets%2F5bdae9b2904d4e6f8e00b8c0f2e5670e%2Fb7836dc880764791bff4469dbed7278b?format=webp&width=800"
@@ -268,10 +324,13 @@ export default function Index() {
                   className="w-full h-auto max-w-lg rounded-lg"
                 />
               </div>
-            </div>
+            </motion.div>
 
             {/* Right Content */}
-            <div className="space-y-8">
+            <motion.div
+              className="space-y-8"
+              variants={fadeInRight}
+            >
               {/* Success Metric */}
               <div className="flex items-center space-x-2 text-sm">
                 <span className="text-primary">✓</span>
@@ -326,10 +385,10 @@ export default function Index() {
                   See How It Works →
                 </Button>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* FAQ Section */}
       <FAQSection />
