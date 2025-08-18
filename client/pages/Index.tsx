@@ -180,76 +180,78 @@ export default function Index() {
       <ServicesShowcase />
 
       {/* Join Community Section */}
-      <main className="container mx-auto px-6 py-16 lg:py-24">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="space-y-8">
-            {/* Success Metric */}
-            <div className="flex items-center space-x-2 text-sm">
-              <span className="text-primary">✓</span>
-              <span className="text-gray-600">
-                Join 20,000+ Active Skill Traders
-              </span>
+      <section className="bg-black text-white py-16 lg:py-24">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="space-y-8">
+              {/* Success Metric */}
+              <div className="flex items-center space-x-2 text-sm">
+                <span className="text-primary">✓</span>
+                <span className="text-gray-300">
+                  Join 20,000+ Active Skill Traders
+                </span>
+              </div>
+
+              {/* Main Headline */}
+              <div className="space-y-6">
+                <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
+                  Connect with professionals{" "}
+                  <span className="block">and start trading skills</span>
+                </h1>
+
+                <p className="text-lg text-gray-300 max-w-lg leading-relaxed">
+                  Join our thriving community where knowledge flows freely. Share
+                  your expertise, learn new skills, and build meaningful professional
+                  relationships that advance your career.
+                </p>
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  onClick={() => {
+                    const isAuth = localStorage.getItem("isAuthenticated");
+                    if (isAuth === "true") {
+                      window.location.href = "/feed";
+                    } else {
+                      window.location.href = "/create-profile";
+                    }
+                  }}
+                  className="bg-primary hover:bg-primary/90 text-black px-8 py-3 text-base font-semibold"
+                >
+                  Join the Community →
+                </Button>
+                <Button
+                  onClick={() => {
+                    const isAuth = localStorage.getItem("isAuthenticated");
+                    if (isAuth === "true") {
+                      window.location.href = "/feed";
+                    } else {
+                      window.location.href = "/create-profile";
+                    }
+                  }}
+                  variant="outline"
+                  className="border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white px-8 py-3 text-base"
+                >
+                  Browse Skills →
+                </Button>
+              </div>
             </div>
 
-            {/* Main Headline */}
-            <div className="space-y-6">
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
-                Connect with professionals{" "}
-                <span className="block">and start trading skills</span>
-              </h1>
-
-              <p className="text-lg text-gray-600 max-w-lg leading-relaxed">
-                Join our thriving community where knowledge flows freely. Share
-                your expertise, learn new skills, and build meaningful professional
-                relationships that advance your career.
-              </p>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                onClick={() => {
-                  const isAuth = localStorage.getItem("isAuthenticated");
-                  if (isAuth === "true") {
-                    window.location.href = "/feed";
-                  } else {
-                    window.location.href = "/create-profile";
-                  }
-                }}
-                className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-base"
-              >
-                Join the Community →
-              </Button>
-              <Button
-                onClick={() => {
-                  const isAuth = localStorage.getItem("isAuthenticated");
-                  if (isAuth === "true") {
-                    window.location.href = "/feed";
-                  } else {
-                    window.location.href = "/create-profile";
-                  }
-                }}
-                variant="outline"
-                className="border-gray-200 text-gray-700 px-8 py-3 text-base"
-              >
-                Browse Skills →
-              </Button>
-            </div>
-          </div>
-
-          {/* Right Illustration */}
-          <div className="relative">
-            <div className="flex items-center justify-center">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F5bdae9b2904d4e6f8e00b8c0f2e5670e%2F2a09d0e9c02848efb3eac0ac53678054?format=webp&width=800"
-                alt="Professionals collaborating and sharing skills in a modern workspace"
-                className="w-full h-auto max-w-lg rounded-lg"
-              />
+            {/* Right Illustration */}
+            <div className="relative">
+              <div className="flex items-center justify-center">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F5bdae9b2904d4e6f8e00b8c0f2e5670e%2F2a09d0e9c02848efb3eac0ac53678054?format=webp&width=800"
+                  alt="Professionals collaborating and sharing skills in a modern workspace"
+                  className="w-full h-auto max-w-lg rounded-lg"
+                />
+              </div>
             </div>
           </div>
         </div>
-      </main>
+      </section>
 
       {/* FAQ Section */}
       <FAQSection />
