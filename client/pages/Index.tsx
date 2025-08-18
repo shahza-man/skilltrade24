@@ -271,59 +271,30 @@ export default function Index() {
 
             {/* Right Content */}
             <div className="space-y-8">
-              {/* AI Badge */}
+              {/* Success Metric */}
               <div className="flex items-center space-x-2 text-sm">
                 <span className="text-primary">✓</span>
                 <span className="text-gray-300">
-                  AI-POWERED MATCHING
+                  AI-Powered Smart Matching
                 </span>
               </div>
 
               {/* Main Headline */}
-              <div className="space-y-4">
-                <h2 className="text-2xl lg:text-3xl font-bold text-white leading-tight">
+              <div className="space-y-6">
+                <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
                   Smart AI finds your perfect{" "}
                   <span className="block">trade partners</span>
-                </h2>
+                </h1>
 
-                <p className="text-gray-300 leading-relaxed">
-                  AI instantly matches you with the right people for skill trading.
+                <p className="text-lg text-gray-300 max-w-lg leading-relaxed">
+                  The AI in our WorkTrade platform acts as a smart trade-matching assistant.
+                  Instead of wasting time searching manually, users instantly get personalized
+                  trade suggestions.
                 </p>
               </div>
 
-              {/* AI Features */}
-              <div className="space-y-4">
-                <div>
-                  <h3 className="font-semibold text-white mb-1">
-                    Instant Matching
-                  </h3>
-                  <p className="text-sm text-gray-300">
-                    AI shows you people looking for your skills.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold text-white mb-1">
-                    Smart Connections
-                  </h3>
-                  <p className="text-sm text-gray-300">
-                    Find skill providers when you need them.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold text-white mb-1">
-                    Learning Algorithm
-                  </h3>
-                  <p className="text-sm text-gray-300">
-                    Gets better with your preferences and trades.
-                  </p>
-                </div>
-              </div>
-
-
-              {/* CTA */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   onClick={() => {
                     const isAuth = localStorage.getItem("isAuthenticated");
@@ -333,7 +304,7 @@ export default function Index() {
                       window.location.href = "/create-profile";
                     }
                   }}
-                  className="bg-primary hover:bg-primary/90 text-black font-semibold px-8 py-3 text-base"
+                  className="bg-primary hover:bg-primary/90 text-black px-8 py-3 text-base"
                 >
                   Try AI Matching →
                 </Button>
