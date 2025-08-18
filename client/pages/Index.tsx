@@ -36,6 +36,66 @@ export default function Index() {
               </p>
             </div>
 
+            {/* Interactive Skill Search */}
+            <div className="space-y-4">
+              <div className="relative">
+                <div className="flex items-center bg-white border-2 border-gray-200 rounded-lg p-2 gap-2 hover:border-primary/50 focus-within:border-primary transition-colors">
+                  <svg className="w-5 h-5 text-gray-400 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                  <input
+                    type="text"
+                    placeholder="Search skills like 'React', 'Design', 'Marketing'..."
+                    className="flex-1 px-2 py-2 text-gray-700 bg-transparent focus:outline-none text-base"
+                    onClick={() => {
+                      const isAuth = localStorage.getItem("isAuthenticated");
+                      if (isAuth === "true") {
+                        window.location.href = "/feed";
+                      } else {
+                        window.location.href = "/create-profile";
+                      }
+                    }}
+                  />
+                  <Button
+                    onClick={() => {
+                      const isAuth = localStorage.getItem("isAuthenticated");
+                      if (isAuth === "true") {
+                        window.location.href = "/feed";
+                      } else {
+                        window.location.href = "/create-profile";
+                      }
+                    }}
+                    className="bg-primary hover:bg-primary/90 text-white px-6 py-2"
+                  >
+                    Search
+                  </Button>
+                </div>
+              </div>
+
+              {/* Popular Skills */}
+              <div className="flex items-center space-x-3">
+                <span className="text-sm text-gray-500">Popular:</span>
+                <div className="flex flex-wrap gap-2">
+                  {["React", "UI Design", "Python", "Marketing", "Writing"].map((skill) => (
+                    <button
+                      key={skill}
+                      onClick={() => {
+                        const isAuth = localStorage.getItem("isAuthenticated");
+                        if (isAuth === "true") {
+                          window.location.href = "/feed";
+                        } else {
+                          window.location.href = "/create-profile";
+                        }
+                      }}
+                      className="px-3 py-1 bg-gray-100 hover:bg-primary/10 hover:text-primary text-gray-600 rounded-full text-sm transition-colors"
+                    >
+                      {skill}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
