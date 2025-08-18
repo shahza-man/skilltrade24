@@ -406,7 +406,7 @@ export default function Index() {
 
           {/* Bottom Section */}
           <div className="border-t border-gray-200 mt-12 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="text-center space-y-2">
               <div className="text-gray-600 text-sm">
                 © 2024 SkillTrade. All rights reserved.
               </div>
