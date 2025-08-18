@@ -36,7 +36,6 @@ export default function Index() {
               </p>
             </div>
 
-
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
@@ -202,9 +201,9 @@ export default function Index() {
                 </h1>
 
                 <p className="text-lg text-gray-300 max-w-lg leading-relaxed">
-                  Join our thriving community where knowledge flows freely. Share
-                  your expertise, learn new skills, and build meaningful professional
-                  relationships that advance your career.
+                  Join our thriving community where knowledge flows freely.
+                  Share your expertise, learn new skills, and build meaningful
+                  professional relationships that advance your career.
                 </p>
               </div>
 
@@ -287,9 +286,12 @@ export default function Index() {
                 </h1>
 
                 <p className="text-xl text-gray-300 max-w-2xl leading-relaxed">
-                  The AI in our WorkTrade platform acts as a smart trade-matching assistant that learns from your preferences.
-                  Instead of wasting time searching manually, users instantly get personalized trade suggestions.
-                  Our advanced algorithm connects you with the right people who are looking for your skills or offering exactly what you need.
+                  The AI in our WorkTrade platform acts as a smart
+                  trade-matching assistant that learns from your preferences.
+                  Instead of wasting time searching manually, users instantly
+                  get personalized trade suggestions. Our advanced algorithm
+                  connects you with the right people who are looking for your
+                  skills or offering exactly what you need.
                 </p>
               </div>
 
@@ -300,7 +302,7 @@ export default function Index() {
                   <div className="text-gray-300 text-sm">Match Accuracy</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-white">{'<30s'}</div>
+                  <div className="text-2xl font-bold text-white">{"<30s"}</div>
                   <div className="text-gray-300 text-sm">Match Time</div>
                 </div>
                 <div className="text-center">
