@@ -211,6 +211,50 @@ export default function Header() {
       {isMenuOpen && (
         <div className="md:hidden bg-white border-b border-gray-100">
           <nav className="px-4 py-4 space-y-4">
+            {/* Mobile Search Bar */}
+            <div className="sm:hidden mb-4">
+              <div className="flex items-center bg-gray-50 border border-gray-200 rounded-lg hover:border-primary/50 focus-within:border-primary transition-colors">
+                <svg className="w-4 h-4 text-gray-400 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input
+                  type="text"
+                  placeholder="Search skills..."
+                  className="flex-1 px-3 py-2 text-gray-700 bg-transparent focus:outline-none text-sm"
+                  onClick={() => {
+                    const isAuth = localStorage.getItem("isAuthenticated");
+                    if (isAuth === "true") {
+                      window.location.href = "/feed";
+                    } else {
+                      window.location.href = "/create-profile";
+                    }
+                    setIsMenuOpen(false);
+                  }}
+                />
+              </div>
+
+              {/* Popular Skills for Mobile */}
+              <div className="mt-3 flex flex-wrap gap-2">
+                {["React", "Design", "Python", "Marketing"].map((skill) => (
+                  <button
+                    key={skill}
+                    onClick={() => {
+                      const isAuth = localStorage.getItem("isAuthenticated");
+                      if (isAuth === "true") {
+                        window.location.href = "/feed";
+                      } else {
+                        window.location.href = "/create-profile";
+                      }
+                      setIsMenuOpen(false);
+                    }}
+                    className="px-3 py-1 bg-gray-100 hover:bg-primary/10 hover:text-primary text-gray-600 rounded-full text-xs transition-colors"
+                  >
+                    {skill}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <Link
               to="/skills"
               className="block text-gray-600 hover:text-gray-900 transition-colors"
