@@ -64,7 +64,7 @@ export default function Index() {
                 variant="outline"
                 className="border-gray-200 text-gray-700 px-8 py-3 text-base"
               >
-                �� Messages →
+                💬 Messages →
               </Button>
             </div>
           </div>
@@ -255,7 +255,7 @@ export default function Index() {
       </section>
 
       {/* AI Trade-Matching Section */}
-      <section className="py-20 lg:py-32 bg-white">
+      <section className="bg-black text-white py-20 lg:py-32">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Image */}
@@ -272,19 +272,21 @@ export default function Index() {
             {/* Right Content */}
             <div className="space-y-8">
               {/* AI Badge */}
-              <div className="inline-flex items-center px-4 py-2 bg-primary/10 text-primary text-sm font-medium rounded-full">
-                <span className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse"></span>
-                AI-Powered Matching
+              <div className="flex items-center space-x-2 text-sm">
+                <span className="text-primary">✓</span>
+                <span className="text-gray-300">
+                  AI-POWERED MATCHING
+                </span>
               </div>
 
               {/* Main Headline */}
               <div className="space-y-6">
-                <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
                   Smart AI finds your perfect{" "}
-                  <span className="text-primary">trade partners</span>
+                  <span className="block">trade partners</span>
                 </h2>
 
-                <p className="text-lg text-gray-600 leading-relaxed">
+                <p className="text-lg text-gray-300 leading-relaxed">
                   The AI in our WorkTrade platform acts as a smart trade-matching assistant.
                   Instead of wasting time searching manually, users instantly get personalized
                   trade suggestions.
@@ -293,54 +295,39 @@ export default function Index() {
 
               {/* AI Features */}
               <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Instant Skill Matching</h3>
-                    <p className="text-gray-600 text-sm">
-                      If you want to offer a skill, AI shows you the right people who are looking for it.
-                    </p>
-                  </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-white">
+                    Instant Skill Matching
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    If you want to offer a skill, AI shows you the right people who are looking for it.
+                  </p>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Smart Connections</h3>
-                    <p className="text-gray-600 text-sm">
-                      If you are looking for a skill, AI connects you to users who are offering it.
-                    </p>
-                  </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-white">
+                    Smart Connections
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    If you are looking for a skill, AI connects you to users who are offering it.
+                  </p>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Learning Algorithm</h3>
-                    <p className="text-gray-600 text-sm">
-                      It learns from your preferences and past trades to recommend the best matches.
-                    </p>
-                  </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-white">
+                    Learning Algorithm
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    It learns from your preferences and past trades to recommend the best matches.
+                  </p>
                 </div>
               </div>
 
               {/* Results */}
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h4 className="font-semibold text-gray-900 mb-4">The Result</h4>
-                <p className="text-gray-700 leading-relaxed">
-                  This makes the whole process of exchanging work <strong>faster, easier, and more accurate</strong>,
+              <div className="border-t border-gray-800 pt-8">
+                <h4 className="text-xl font-semibold text-white mb-4">The Result</h4>
+                <p className="text-gray-300 leading-relaxed text-lg">
+                  This makes the whole process of exchanging work <span className="text-primary font-semibold">faster, easier, and more accurate</span>,
                   so users spend less time searching and more time actually working and trading.
                 </p>
               </div>
@@ -356,11 +343,11 @@ export default function Index() {
                       window.location.href = "/create-profile";
                     }
                   }}
-                  className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-base"
+                  className="bg-primary hover:bg-primary/90 text-black font-semibold px-8 py-3 text-base"
                 >
                   Try AI Matching →
                 </Button>
-                <button
+                <Button
                   onClick={() => {
                     const isAuth = localStorage.getItem("isAuthenticated");
                     if (isAuth === "true") {
@@ -369,13 +356,11 @@ export default function Index() {
                       window.location.href = "/create-profile";
                     }
                   }}
-                  className="group flex items-center justify-center space-x-2 text-primary hover:text-primary/80 font-medium transition-colors duration-200"
+                  variant="outline"
+                  className="border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white px-8 py-3 text-base"
                 >
-                  <span>See How It Works</span>
-                  <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
+                  See How It Works →
+                </Button>
               </div>
             </div>
           </div>
