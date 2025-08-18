@@ -3,7 +3,13 @@ import Header from "@/components/Header";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import FAQSection from "@/components/FAQSection";
 import { motion } from "framer-motion";
-import { useScrollAnimation, fadeInUp, fadeInLeft, fadeInRight, staggerContainer } from "@/hooks/use-scroll-animation";
+import {
+  useScrollAnimation,
+  fadeInUp,
+  fadeInLeft,
+  fadeInRight,
+  staggerContainer,
+} from "@/hooks/use-scroll-animation";
 
 export default function Index() {
   return (
@@ -19,10 +25,7 @@ export default function Index() {
           animate="animate"
         >
           {/* Left Content */}
-          <motion.div
-            className="space-y-8"
-            variants={fadeInLeft}
-          >
+          <motion.div className="space-y-8" variants={fadeInLeft}>
             {/* Success Metric */}
             <div className="flex items-center space-x-2 text-sm">
               <span className="text-primary">✓</span>
@@ -80,10 +83,7 @@ export default function Index() {
           </motion.div>
 
           {/* Right Illustration */}
-          <motion.div
-            className="relative"
-            variants={fadeInRight}
-          >
+          <motion.div className="relative" variants={fadeInRight}>
             <div className="flex items-center justify-center">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F5bdae9b2904d4e6f8e00b8c0f2e5670e%2Fc9d4ba38360a440b90b602f6915db14e?format=webp&width=800"
@@ -139,10 +139,7 @@ export default function Index() {
             variants={staggerContainer}
           >
             {/* Left Video */}
-            <motion.div
-              className="relative"
-              variants={fadeInLeft}
-            >
+            <motion.div className="relative" variants={fadeInLeft}>
               <div className="bg-gray-800 rounded-2xl overflow-hidden shadow-lg">
                 <video
                   className="w-full h-auto rounded-2xl"
@@ -161,10 +158,7 @@ export default function Index() {
             </motion.div>
 
             {/* Right Content */}
-            <motion.div
-              className="space-y-6"
-              variants={fadeInRight}
-            >
+            <motion.div className="space-y-6" variants={fadeInRight}>
               <div className="flex items-center space-x-2 text-sm">
                 <span className="text-primary">✓</span>
                 <span className="text-gray-300">ABOUT US</span>
@@ -186,7 +180,6 @@ export default function Index() {
               </p>
             </motion.div>
           </motion.div>
-
         </div>
       </motion.section>
 
@@ -204,10 +197,7 @@ export default function Index() {
             variants={staggerContainer}
           >
             {/* Left Content */}
-            <motion.div
-              className="space-y-8"
-              variants={fadeInLeft}
-            >
+            <motion.div className="space-y-8" variants={fadeInLeft}>
               {/* Success Metric */}
               <div className="flex items-center space-x-2 text-sm">
                 <span className="text-primary">✓</span>
@@ -263,10 +253,7 @@ export default function Index() {
             </motion.div>
 
             {/* Right Illustration */}
-            <motion.div
-              className="relative"
-              variants={fadeInRight}
-            >
+            <motion.div className="relative" variants={fadeInRight}>
               <div className="flex items-center justify-center">
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets%2F5bdae9b2904d4e6f8e00b8c0f2e5670e%2F2a09d0e9c02848efb3eac0ac53678054?format=webp&width=800"
@@ -296,10 +283,7 @@ export default function Index() {
             variants={staggerContainer}
           >
             {/* Left Image */}
-            <motion.div
-              className="relative"
-              variants={fadeInLeft}
-            >
+            <motion.div className="relative" variants={fadeInLeft}>
               <div className="flex items-center justify-center">
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets%2F5bdae9b2904d4e6f8e00b8c0f2e5670e%2Fb7836dc880764791bff4469dbed7278b?format=webp&width=800"
@@ -310,10 +294,7 @@ export default function Index() {
             </motion.div>
 
             {/* Right Content */}
-            <motion.div
-              className="space-y-8"
-              variants={fadeInRight}
-            >
+            <motion.div className="space-y-8" variants={fadeInRight}>
               {/* Success Metric */}
               <div className="flex items-center space-x-2 text-sm">
                 <span className="text-primary">✓</span>
@@ -386,28 +367,53 @@ export default function Index() {
                 <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-sm">ST</span>
                 </div>
-                <span className="text-xl font-semibold text-gray-900">SkillTrade</span>
+                <span className="text-xl font-semibold text-gray-900">
+                  SkillTrade
+                </span>
               </div>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Connect with professionals and start trading skills. Transform your expertise into opportunities.
+                Connect with professionals and start trading skills. Transform
+                your expertise into opportunities.
               </p>
             </div>
 
             {/* Quick Links */}
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-gray-900">Quick Links</h3>
+              <h3 className="text-lg font-semibold text-gray-900">
+                Quick Links
+              </h3>
               <ul className="space-y-2 text-gray-600">
                 <li>
-                  <a href="/skills" className="hover:text-primary transition-colors">Browse Skills</a>
+                  <a
+                    href="/skills"
+                    className="hover:text-primary transition-colors"
+                  >
+                    Browse Skills
+                  </a>
                 </li>
                 <li>
-                  <a href="/trades" className="hover:text-primary transition-colors">Active Trades</a>
+                  <a
+                    href="/trades"
+                    className="hover:text-primary transition-colors"
+                  >
+                    Active Trades
+                  </a>
                 </li>
                 <li>
-                  <a href="/about" className="hover:text-primary transition-colors">About Us</a>
+                  <a
+                    href="/about"
+                    className="hover:text-primary transition-colors"
+                  >
+                    About Us
+                  </a>
                 </li>
                 <li>
-                  <a href="/feed" className="hover:text-primary transition-colors">Community</a>
+                  <a
+                    href="/feed"
+                    className="hover:text-primary transition-colors"
+                  >
+                    Community
+                  </a>
                 </li>
               </ul>
             </div>
@@ -417,16 +423,24 @@ export default function Index() {
               <h3 className="text-lg font-semibold text-gray-900">Services</h3>
               <ul className="space-y-2 text-gray-600">
                 <li>
-                  <span className="hover:text-primary transition-colors cursor-pointer">Skill Exchange</span>
+                  <span className="hover:text-primary transition-colors cursor-pointer">
+                    Skill Exchange
+                  </span>
                 </li>
                 <li>
-                  <span className="hover:text-primary transition-colors cursor-pointer">AI Matching</span>
+                  <span className="hover:text-primary transition-colors cursor-pointer">
+                    AI Matching
+                  </span>
                 </li>
                 <li>
-                  <span className="hover:text-primary transition-colors cursor-pointer">Project Trading</span>
+                  <span className="hover:text-primary transition-colors cursor-pointer">
+                    Project Trading
+                  </span>
                 </li>
                 <li>
-                  <span className="hover:text-primary transition-colors cursor-pointer">Mentorship</span>
+                  <span className="hover:text-primary transition-colors cursor-pointer">
+                    Mentorship
+                  </span>
                 </li>
               </ul>
             </div>
@@ -454,9 +468,7 @@ export default function Index() {
               <div className="text-gray-600 text-sm">
                 © 2024 SkillTrade. All rights reserved.
               </div>
-              <div className="text-gray-600 text-sm">
-                Mohammed Shahzaman
-              </div>
+              <div className="text-gray-600 text-sm">Mohammed Shahzaman</div>
             </div>
           </div>
         </div>
