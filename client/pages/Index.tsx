@@ -254,7 +254,7 @@ export default function Index() {
       </section>
 
       {/* AI Trade-Matching Section */}
-      <section className="bg-black text-white py-20 lg:py-32">
+      <section className="bg-black text-white py-16 lg:py-24">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Image */}
@@ -263,7 +263,7 @@ export default function Index() {
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets%2F5bdae9b2904d4e6f8e00b8c0f2e5670e%2Fb7836dc880764791bff4469dbed7278b?format=webp&width=800"
                   alt="AI-powered skill matching connecting professionals for seamless collaboration"
-                  className="w-full h-auto max-w-md rounded-lg"
+                  className="w-full h-auto max-w-lg rounded-lg"
                 />
               </div>
             </div>
@@ -285,30 +285,13 @@ export default function Index() {
                   <span className="block">trade partners instantly</span>
                 </h1>
 
-                <p className="text-xl text-gray-300 max-w-2xl leading-relaxed">
-                  The AI in our WorkTrade platform acts as a smart
-                  trade-matching assistant that learns from your preferences.
-                  Instead of wasting time searching manually, users instantly
-                  get personalized trade suggestions. Our advanced algorithm
-                  connects you with the right people who are looking for your
-                  skills or offering exactly what you need.
+                <p className="text-lg text-gray-300 max-w-lg leading-relaxed">
+                  Connect with professionals and start trading skills with our
+                  AI-powered matching system. Our smart algorithm learns from
+                  your preferences and instantly connects you with the right
+                  people who are looking for your skills or offering exactly
+                  what you need.
                 </p>
-              </div>
-
-              {/* Additional Features */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">98%</div>
-                  <div className="text-gray-300 text-sm">Match Accuracy</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-white">{"<30s"}</div>
-                  <div className="text-gray-300 text-sm">Match Time</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">24/7</div>
-                  <div className="text-gray-300 text-sm">AI Available</div>
-                </div>
               </div>
 
               {/* CTA Buttons */}
@@ -322,7 +305,7 @@ export default function Index() {
                       window.location.href = "/create-profile";
                     }
                   }}
-                  className="bg-primary hover:bg-primary/90 text-black px-8 py-3 text-base"
+                  className="bg-primary hover:bg-primary/90 text-black px-8 py-3 text-base font-semibold"
                 >
                   Try AI Matching →
                 </Button>
