@@ -33,10 +33,13 @@ export default function Index() {
 
             {/* Main Headline */}
             <div className="space-y-6">
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
-                Transform your skills to{" "}
-                <span className="block">grow your opportunities</span>
-              </h1>
+              <div className="w-full">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F53e4fd32dd724f51a2e513f718e61215%2F357099873e674439b43c8e8204bccbfa?format=webp&width=800"
+                  alt="Transform your digital presence to grow your business"
+                  className="w-full max-w-2xl h-auto"
+                />
+              </div>
 
               <p className="text-lg text-gray-600 max-w-lg leading-relaxed">
                 Unlock growth and collaboration with our skill trading platform.
