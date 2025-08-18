@@ -281,12 +281,12 @@ export default function Index() {
 
               {/* Main Headline */}
               <div className="space-y-6">
-                <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
+                <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight">
                   Smart AI finds your perfect{" "}
                   <span className="block">trade partners</span>
                 </h2>
 
-                <p className="text-lg text-gray-300 leading-relaxed">
+                <p className="text-lg text-gray-300 leading-relaxed max-w-2xl">
                   The AI in our WorkTrade platform acts as a smart trade-matching assistant.
                   Instead of wasting time searching manually, users instantly get personalized
                   trade suggestions.
@@ -294,9 +294,9 @@ export default function Index() {
               </div>
 
               {/* AI Features */}
-              <div className="space-y-6">
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-white">
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-3">
                     Instant Skill Matching
                   </h3>
                   <p className="text-gray-300 leading-relaxed">
@@ -304,8 +304,8 @@ export default function Index() {
                   </p>
                 </div>
 
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-white">
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-3">
                     Smart Connections
                   </h3>
                   <p className="text-gray-300 leading-relaxed">
@@ -313,8 +313,8 @@ export default function Index() {
                   </p>
                 </div>
 
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-white">
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-3">
                     Learning Algorithm
                   </h3>
                   <p className="text-gray-300 leading-relaxed">
