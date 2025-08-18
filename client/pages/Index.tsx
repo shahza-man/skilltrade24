@@ -331,6 +331,92 @@ export default function Index() {
 
       {/* FAQ Section */}
       <FAQSection />
+
+      {/* Footer */}
+      <footer className="bg-black text-white py-16 border-t border-gray-800">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Brand Section */}
+            <div className="space-y-4">
+              <div className="flex items-center space-x-2">
+                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">ST</span>
+                </div>
+                <span className="text-xl font-semibold">SkillTrade</span>
+              </div>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Connect with professionals and start trading skills. Transform your expertise into opportunities.
+              </p>
+            </div>
+
+            {/* Quick Links */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold">Quick Links</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li>
+                  <a href="/skills" className="hover:text-primary transition-colors">Browse Skills</a>
+                </li>
+                <li>
+                  <a href="/trades" className="hover:text-primary transition-colors">Active Trades</a>
+                </li>
+                <li>
+                  <a href="/about" className="hover:text-primary transition-colors">About Us</a>
+                </li>
+                <li>
+                  <a href="/feed" className="hover:text-primary transition-colors">Community</a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Services */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold">Services</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li>
+                  <span className="hover:text-primary transition-colors cursor-pointer">Skill Exchange</span>
+                </li>
+                <li>
+                  <span className="hover:text-primary transition-colors cursor-pointer">AI Matching</span>
+                </li>
+                <li>
+                  <span className="hover:text-primary transition-colors cursor-pointer">Project Trading</span>
+                </li>
+                <li>
+                  <span className="hover:text-primary transition-colors cursor-pointer">Mentorship</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold">Contact</h3>
+              <div className="space-y-2 text-gray-400">
+                <div className="flex items-center space-x-2">
+                  <span className="text-sm">Email:</span>
+                </div>
+                <a
+                  href="mailto:mohammedzama9024@gmail.com"
+                  className="text-primary hover:text-primary/80 transition-colors text-sm break-all"
+                >
+                  mohammedzama9024@gmail.com
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Section */}
+          <div className="border-t border-gray-800 mt-12 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <div className="text-gray-400 text-sm">
+                © 2024 SkillTrade. All rights reserved.
+              </div>
+              <div className="text-gray-400 text-sm">
+                Built with ❤️ by <span className="text-primary font-semibold">Mohammed Shahzaman</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
