@@ -202,10 +202,24 @@ export default function Index() {
             className="grid lg:grid-cols-2 gap-12 items-center"
             variants={staggerContainer}
           >
-            {/* Left Content */}
+            {/* Left Illustration */}
+            <motion.div
+              className="relative"
+              variants={fadeInLeft}
+            >
+              <div className="flex items-center justify-center">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F5bdae9b2904d4e6f8e00b8c0f2e5670e%2F2a09d0e9c02848efb3eac0ac53678054?format=webp&width=800"
+                  alt="Professionals collaborating and sharing skills in a modern workspace"
+                  className="w-full h-auto max-w-lg rounded-lg"
+                />
+              </div>
+            </motion.div>
+
+            {/* Right Content */}
             <motion.div
               className="space-y-8"
-              variants={fadeInLeft}
+              variants={fadeInRight}
             >
               {/* Success Metric */}
               <div className="flex items-center space-x-2 text-sm">
@@ -260,20 +274,6 @@ export default function Index() {
                 </Button>
               </div>
             </motion.div>
-
-            {/* Right Illustration */}
-            <motion.div
-              className="relative"
-              variants={fadeInRight}
-            >
-              <div className="flex items-center justify-center">
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F5bdae9b2904d4e6f8e00b8c0f2e5670e%2F2a09d0e9c02848efb3eac0ac53678054?format=webp&width=800"
-                  alt="Professionals collaborating and sharing skills in a modern workspace"
-                  className="w-full h-auto max-w-lg rounded-lg"
-                />
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </motion.section>
@@ -294,24 +294,10 @@ export default function Index() {
             className="grid lg:grid-cols-2 gap-12 items-center"
             variants={staggerContainer}
           >
-            {/* Left Image */}
-            <motion.div
-              className="relative"
-              variants={fadeInLeft}
-            >
-              <div className="flex items-center justify-center">
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F5bdae9b2904d4e6f8e00b8c0f2e5670e%2Fb7836dc880764791bff4469dbed7278b?format=webp&width=800"
-                  alt="AI-powered skill matching connecting professionals for seamless collaboration"
-                  className="w-full h-auto max-w-lg rounded-lg"
-                />
-              </div>
-            </motion.div>
-
-            {/* Right Content */}
+            {/* Left Content */}
             <motion.div
               className="space-y-8"
-              variants={fadeInRight}
+              variants={fadeInLeft}
             >
               {/* Success Metric */}
               <div className="flex items-center space-x-2 text-sm">
@@ -366,6 +352,20 @@ export default function Index() {
                 >
                   See How It Works →
                 </Button>
+              </div>
+            </motion.div>
+
+            {/* Right Image */}
+            <motion.div
+              className="relative"
+              variants={fadeInRight}
+            >
+              <div className="flex items-center justify-center">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F5bdae9b2904d4e6f8e00b8c0f2e5670e%2Fb7836dc880764791bff4469dbed7278b?format=webp&width=800"
+                  alt="AI-powered skill matching connecting professionals for seamless collaboration"
+                  className="w-full h-auto max-w-lg rounded-lg"
+                />
               </div>
             </motion.div>
           </motion.div>
