@@ -257,7 +257,7 @@ export default function Index() {
       {/* AI Trade-Matching Section */}
       <section className="bg-black text-white py-20 lg:py-32">
         <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-5 gap-16 items-start">
+          <div className="grid lg:grid-cols-3 gap-12 items-start">
             {/* Left Image - Takes 2 columns */}
             <div className="lg:col-span-2">
               <div className="relative">
@@ -269,8 +269,8 @@ export default function Index() {
               </div>
             </div>
 
-            {/* Right Content - Takes 3 columns */}
-            <div className="lg:col-span-3 space-y-8">
+            {/* Right Content - Takes 1 column */}
+            <div className="space-y-6">
               {/* AI Badge */}
               <div className="flex items-center space-x-2 text-sm">
                 <span className="text-primary">✓</span>
@@ -280,45 +280,43 @@ export default function Index() {
               </div>
 
               {/* Main Headline */}
-              <div className="space-y-6">
-                <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight">
+              <div className="space-y-4">
+                <h2 className="text-2xl lg:text-3xl font-bold text-white leading-tight">
                   Smart AI finds your perfect{" "}
                   <span className="block">trade partners</span>
                 </h2>
 
-                <p className="text-lg text-gray-300 leading-relaxed max-w-2xl">
-                  The AI in our WorkTrade platform acts as a smart trade-matching assistant.
-                  Instead of wasting time searching manually, users instantly get personalized
-                  trade suggestions.
+                <p className="text-gray-300 leading-relaxed">
+                  AI instantly matches you with the right people for skill trading.
                 </p>
               </div>
 
               {/* AI Features */}
-              <div className="space-y-8">
+              <div className="space-y-4">
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-3">
-                    Instant Skill Matching
+                  <h3 className="font-semibold text-white mb-1">
+                    Instant Matching
                   </h3>
-                  <p className="text-gray-300 leading-relaxed">
-                    If you want to offer a skill, AI shows you the right people who are looking for it.
+                  <p className="text-sm text-gray-300">
+                    AI shows you people looking for your skills.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-3">
+                  <h3 className="font-semibold text-white mb-1">
                     Smart Connections
                   </h3>
-                  <p className="text-gray-300 leading-relaxed">
-                    If you are looking for a skill, AI connects you to users who are offering it.
+                  <p className="text-sm text-gray-300">
+                    Find skill providers when you need them.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-3">
+                  <h3 className="font-semibold text-white mb-1">
                     Learning Algorithm
                   </h3>
-                  <p className="text-gray-300 leading-relaxed">
-                    It learns from your preferences and past trades to recommend the best matches.
+                  <p className="text-sm text-gray-300">
+                    Gets better with your preferences and trades.
                   </p>
                 </div>
               </div>
