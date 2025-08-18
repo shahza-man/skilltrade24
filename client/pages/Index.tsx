@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import FAQSection from "@/components/FAQSection";
-import VideoShowcase from "@/components/VideoShowcase";
 import { motion } from "framer-motion";
 import { useScrollAnimation, fadeInUp, fadeInLeft, fadeInRight, staggerContainer } from "@/hooks/use-scroll-animation";
 
@@ -95,9 +94,6 @@ export default function Index() {
         </motion.div>
       </main>
 
-      {/* Video Showcase Section */}
-      <VideoShowcase />
-
       {/* Stats Section */}
       <motion.section
         className="bg-black text-white py-16 lg:py-24"
@@ -167,47 +163,27 @@ export default function Index() {
               </p>
             </motion.div>
 
-            {/* Right Image - Placeholder for now */}
+            {/* Right Video */}
             <motion.div
               className="relative"
               variants={fadeInRight}
             >
-              <div className="bg-gray-800 rounded-lg aspect-video flex items-center justify-center">
-                <span className="text-gray-400">Conference Room Image</span>
+              <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                <video
+                  className="w-full h-auto rounded-lg"
+                  controls
+                  poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%23111827'/%3E%3Ctext x='400' y='300' text-anchor='middle' fill='%2322c55e' font-size='24' font-family='system-ui'%3ECollaborative Animation Generation%3C/text%3E%3C/svg%3E"
+                >
+                  <source
+                    src="https://cdn.builder.io/o/assets%2F53e4fd32dd724f51a2e513f718e61215%2F36d2d06960074999aa6c1d75686fd1a5?alt=media&token=ed6ec426-e811-4392-8730-4b358233ff10&apiKey=53e4fd32dd724f51a2e513f718e61215"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </motion.div>
           </motion.div>
 
-          {/* Stats Row */}
-          <motion.div
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-16 lg:mt-24"
-            variants={staggerContainer}
-          >
-            <motion.div className="text-center" variants={fadeInUp}>
-              <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
-                500+
-              </div>
-              <div className="text-gray-300 text-sm">Projects Completed</div>
-            </motion.div>
-            <motion.div className="text-center" variants={fadeInUp}>
-              <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
-                10+
-              </div>
-              <div className="text-gray-300 text-sm">Years of Experience</div>
-            </motion.div>
-            <motion.div className="text-center" variants={fadeInUp}>
-              <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
-                110+
-              </div>
-              <div className="text-gray-300 text-sm">Employees</div>
-            </motion.div>
-            <motion.div className="text-center" variants={fadeInUp}>
-              <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
-                2K+
-              </div>
-              <div className="text-gray-300 text-sm">Happy Customers</div>
-            </motion.div>
-          </motion.div>
         </div>
       </motion.section>
 
