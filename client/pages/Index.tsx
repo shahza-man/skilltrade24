@@ -171,8 +171,10 @@ export default function Index() {
               <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
                 <video
                   className="w-full h-auto rounded-lg"
-                  controls
-                  poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%23111827'/%3E%3Ctext x='400' y='300' text-anchor='middle' fill='%2322c55e' font-size='24' font-family='system-ui'%3ECollaborative Animation Generation%3C/text%3E%3C/svg%3E"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                 >
                   <source
                     src="https://cdn.builder.io/o/assets%2F53e4fd32dd724f51a2e513f718e61215%2F36d2d06960074999aa6c1d75686fd1a5?alt=media&token=ed6ec426-e811-4392-8730-4b358233ff10&apiKey=53e4fd32dd724f51a2e513f718e61215"
