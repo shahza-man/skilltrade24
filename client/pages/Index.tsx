@@ -323,14 +323,6 @@ export default function Index() {
                 </div>
               </div>
 
-              {/* Results */}
-              <div className="border-t border-gray-800 pt-8">
-                <h4 className="text-xl font-semibold text-white mb-4">The Result</h4>
-                <p className="text-gray-300 leading-relaxed text-lg">
-                  This makes the whole process of exchanging work <span className="text-primary font-semibold">faster, easier, and more accurate</span>,
-                  so users spend less time searching and more time actually working and trading.
-                </p>
-              </div>
 
               {/* CTA */}
               <div className="flex flex-col sm:flex-row gap-4">
