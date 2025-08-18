@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { useNavigate } from "react-router-dom";
+import { MessagingInterface } from "@/components/messaging/MessagingInterface";
+import { MessageButton } from "@/components/messaging/MessageButton";
+import { FloatingMessageButton } from "@/components/FloatingMessageButton";
 
 interface Post {
   id: number;
@@ -38,7 +41,8 @@ const mockPosts: Post[] = [
     comments: 18,
     skillsOffered: ["React", "JavaScript", "Node.js"],
     skillsNeeded: ["UI/UX Design", "Figma"],
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop&crop=entropy"
+    image:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop&crop=entropy",
   },
   {
     id: 2,
@@ -54,7 +58,8 @@ const mockPosts: Post[] = [
     timestamp: "4h",
     likes: 89,
     comments: 12,
-    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&h=600&fit=crop&crop=entropy"
+    image:
+      "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&h=600&fit=crop&crop=entropy",
   },
   {
     id: 3,
@@ -72,7 +77,8 @@ const mockPosts: Post[] = [
     likes: 203,
     comments: 41,
     skillsNeeded: ["Mobile Development", "UI Design", "Marketing"],
-    image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop&crop=entropy"
+    image:
+      "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop&crop=entropy",
   },
   {
     id: 4,
@@ -87,7 +93,7 @@ const mockPosts: Post[] = [
     type: "general",
     timestamp: "8h",
     likes: 67,
-    comments: 29
+    comments: 29,
   },
   {
     id: 5,
@@ -104,7 +110,12 @@ const mockPosts: Post[] = [
     timestamp: "12h",
     likes: 156,
     comments: 34,
-    skillsOffered: ["Data Analysis", "Business Intelligence", "Excel", "Python"]
+    skillsOffered: [
+      "Data Analysis",
+      "Business Intelligence",
+      "Excel",
+      "Python",
+    ],
   },
   {
     id: 6,
@@ -119,7 +130,7 @@ const mockPosts: Post[] = [
     type: "general",
     timestamp: "1d",
     likes: 92,
-    comments: 15
+    comments: 15,
   },
   {
     id: 7,
@@ -136,8 +147,13 @@ const mockPosts: Post[] = [
     timestamp: "1d",
     likes: 134,
     comments: 42,
-    skillsOffered: ["JavaScript", "React", "Frontend Development", "TypeScript"],
-    skillsNeeded: ["SEO", "Digital Marketing", "Content Strategy"]
+    skillsOffered: [
+      "JavaScript",
+      "React",
+      "Frontend Development",
+      "TypeScript",
+    ],
+    skillsNeeded: ["SEO", "Digital Marketing", "Content Strategy"],
   },
 ];
 
@@ -147,6 +163,10 @@ const SocialFeed: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>(mockPosts);
   const [likedPosts, setLikedPosts] = useState<Set<number>>(new Set());
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMessagingOpen, setIsMessagingOpen] = useState(false);
+  const [selectedConversationId, setSelectedConversationId] = useState<
+    string | null
+  >(null);
 
   useEffect(() => {
     const userData = localStorage.getItem("userProfile");
@@ -160,7 +180,7 @@ const SocialFeed: React.FC = () => {
     setUser(JSON.parse(userData));
 
     // Load user posts from localStorage and combine with mock posts
-    const userPosts = JSON.parse(localStorage.getItem('userPosts') || '[]');
+    const userPosts = JSON.parse(localStorage.getItem("userPosts") || "[]");
     setPosts([...userPosts, ...mockPosts]);
   }, [navigate]);
 
@@ -186,6 +206,13 @@ const SocialFeed: React.FC = () => {
     });
   };
 
+  const handleMessageUser = (userId: string, userName?: string) => {
+    // Create or find conversation with this user
+    const conversationId = `conv_${userId}`;
+    setSelectedConversationId(conversationId);
+    setIsMessagingOpen(true);
+  };
+
   if (!user) return null;
 
   return (
@@ -198,19 +225,31 @@ const SocialFeed: React.FC = () => {
             {/* Logo & Back Button */}
             <div className="flex items-center space-x-3">
               <button
-                onClick={() => navigate('/')}
+                onClick={() => navigate("/")}
                 className="text-gray-600 hover:text-green-600 transition-colors p-2 hover:bg-gray-100 rounded-lg"
                 title="Back to home"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7"/>
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
                 </svg>
               </button>
               <div className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-sm">ST</span>
                 </div>
-                <h1 className="text-lg lg:text-xl font-bold text-gray-900">SkillTrade</h1>
+                <h1 className="text-lg lg:text-xl font-bold text-gray-900">
+                  SkillTrade
+                </h1>
               </div>
             </div>
 
@@ -222,7 +261,10 @@ const SocialFeed: React.FC = () => {
               <button className="text-gray-600 hover:text-green-600 font-medium transition-colors">
                 My Trades
               </button>
-              <button className="text-gray-600 hover:text-green-600 font-medium transition-colors">
+              <button
+                onClick={() => navigate("/messages")}
+                className="text-gray-600 hover:text-green-600 font-medium transition-colors"
+              >
                 Messages
               </button>
             </nav>
@@ -231,7 +273,7 @@ const SocialFeed: React.FC = () => {
             <div className="flex items-center space-x-2">
               {/* New Post Button */}
               <button
-                onClick={() => navigate('/create-post')}
+                onClick={() => navigate("/create-post")}
                 className="px-3 py-2 lg:px-4 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 transition-colors"
               >
                 <span className="hidden sm:inline">New Post</span>
@@ -240,7 +282,7 @@ const SocialFeed: React.FC = () => {
 
               {/* User Profile */}
               <button
-                onClick={() => navigate('/profile')}
+                onClick={() => navigate("/profile")}
                 className="hover:opacity-80 transition-opacity"
               >
                 <img
@@ -258,9 +300,22 @@ const SocialFeed: React.FC = () => {
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="lg:hidden p-2 text-gray-600 hover:text-green-600 hover:bg-gray-100 rounded-lg transition-colors"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                        d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d={
+                      isMobileMenuOpen
+                        ? "M6 18L18 6M6 6l12 12"
+                        : "M4 6h16M4 12h16M4 18h16"
+                    }
+                  />
                 </svg>
               </button>
             </div>
@@ -274,7 +329,6 @@ const SocialFeed: React.FC = () => {
               className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-green-500 focus:bg-white transition-colors"
             />
           </div>
-
         </div>
 
         {/* Mobile Menu */}
@@ -294,7 +348,10 @@ const SocialFeed: React.FC = () => {
                 🤝 My Trades
               </button>
               <button
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  navigate("/messages");
+                  setIsMobileMenuOpen(false);
+                }}
                 className="block w-full text-left px-4 py-3 text-gray-600 hover:text-green-600 hover:bg-gray-50 rounded-lg transition-colors"
               >
                 💬 Messages
@@ -304,7 +361,7 @@ const SocialFeed: React.FC = () => {
               <div className="pt-4 border-t border-gray-200 mt-4">
                 <button
                   onClick={() => {
-                    navigate('/profile');
+                    navigate("/profile");
                     setIsMobileMenuOpen(false);
                   }}
                   className="flex items-center space-x-3 px-4 py-2 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors w-full text-left"
@@ -318,8 +375,12 @@ const SocialFeed: React.FC = () => {
                     className="w-10 h-10 rounded-full border-2 border-green-200"
                   />
                   <div>
-                    <div className="text-sm font-semibold text-gray-900">{user.name}</div>
-                    <div className="text-xs text-gray-500">{user.location || "Skill Trader"}</div>
+                    <div className="text-sm font-semibold text-gray-900">
+                      {user.name}
+                    </div>
+                    <div className="text-xs text-gray-500">
+                      {user.location || "Skill Trader"}
+                    </div>
                   </div>
                 </button>
               </div>
@@ -337,13 +398,27 @@ const SocialFeed: React.FC = () => {
               <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all cursor-pointer group">
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center group-hover:bg-green-200 transition-colors">
-                    <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                    <svg
+                      className="w-5 h-5 text-green-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">Offer Skills</h3>
-                    <p className="text-sm text-gray-600">Share your expertise</p>
+                    <h3 className="font-semibold text-gray-900">
+                      Offer Skills
+                    </h3>
+                    <p className="text-sm text-gray-600">
+                      Share your expertise
+                    </p>
                   </div>
                 </div>
               </div>
@@ -351,13 +426,25 @@ const SocialFeed: React.FC = () => {
               <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all cursor-pointer group">
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-200 transition-colors">
-                    <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    <svg
+                      className="w-5 h-5 text-blue-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      />
                     </svg>
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">Find Skills</h3>
-                    <p className="text-sm text-gray-600">Discover new talents</p>
+                    <p className="text-sm text-gray-600">
+                      Discover new talents
+                    </p>
                   </div>
                 </div>
               </div>
@@ -365,13 +452,27 @@ const SocialFeed: React.FC = () => {
               <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all cursor-pointer group">
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center group-hover:bg-purple-200 transition-colors">
-                    <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                    <svg
+                      className="w-5 h-5 text-purple-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">Start Project</h3>
-                    <p className="text-sm text-gray-600">Launch collaboration</p>
+                    <h3 className="font-semibold text-gray-900">
+                      Start Project
+                    </h3>
+                    <p className="text-sm text-gray-600">
+                      Launch collaboration
+                    </p>
                   </div>
                 </div>
               </div>
@@ -388,7 +489,7 @@ const SocialFeed: React.FC = () => {
                   <div className="flex items-center justify-between p-4 pb-3">
                     <div className="flex items-center space-x-3">
                       <button
-                        onClick={() => navigate('/profile')}
+                        onClick={() => navigate("/profile")}
                         className="hover:opacity-80 transition-opacity"
                       >
                         <img
@@ -400,7 +501,7 @@ const SocialFeed: React.FC = () => {
                       <div>
                         <div className="flex items-center space-x-1">
                           <button
-                            onClick={() => navigate('/profile')}
+                            onClick={() => navigate("/profile")}
                             className="font-semibold text-sm hover:text-green-600 transition-colors"
                           >
                             {post.user.username}
@@ -488,7 +589,7 @@ const SocialFeed: React.FC = () => {
                   {/* Post Actions */}
                   <div className="px-4 py-3 border-t border-gray-100">
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-6">
+                      <div className="flex items-center space-x-4">
                         <button
                           onClick={() => handleLike(post.id)}
                           className={cn(
@@ -529,21 +630,16 @@ const SocialFeed: React.FC = () => {
                             />
                           </svg>
                         </button>
-                        <button className="text-gray-700 hover:text-gray-900">
-                          <svg
-                            className="w-6 h-6"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"
-                            />
-                          </svg>
-                        </button>
+                        <MessageButton
+                          userId={post.user.username}
+                          userName={post.user.name}
+                          onClick={handleMessageUser}
+                          variant="ghost"
+                          size="sm"
+                          className="text-gray-700 hover:text-primary hover:bg-primary/10 px-3 py-1 text-sm"
+                        >
+                          Message
+                        </MessageButton>
                       </div>
                       <button className="text-gray-700 hover:text-gray-900">
                         <svg
@@ -562,15 +658,29 @@ const SocialFeed: React.FC = () => {
                       </button>
                     </div>
 
-                    <div className="mt-2">
-                      <span className="font-semibold text-sm">
-                        {post.likes} likes
-                      </span>
-                      {post.comments > 0 && (
-                        <p className="text-gray-500 text-sm mt-1">
-                          View all {post.comments} comments
-                        </p>
-                      )}
+                    <div className="mt-3 flex items-center justify-between">
+                      <div>
+                        <span className="font-semibold text-sm">
+                          {post.likes} likes
+                        </span>
+                        {post.comments > 0 && (
+                          <p className="text-gray-500 text-sm mt-1">
+                            View all {post.comments} comments
+                          </p>
+                        )}
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <MessageButton
+                          userId={post.user.username}
+                          userName={post.user.name}
+                          onClick={handleMessageUser}
+                          variant="outline"
+                          size="sm"
+                          className="border-primary text-primary hover:bg-primary hover:text-white"
+                        >
+                          💬 Message
+                        </MessageButton>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -585,7 +695,7 @@ const SocialFeed: React.FC = () => {
               <div className="bg-white border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center space-x-3 mb-4">
                   <button
-                    onClick={() => navigate('/profile')}
+                    onClick={() => navigate("/profile")}
                     className="hover:opacity-80 transition-opacity"
                   >
                     <img
@@ -721,6 +831,17 @@ const SocialFeed: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Messaging Interface */}
+      <MessagingInterface
+        isOpen={isMessagingOpen}
+        onClose={() => setIsMessagingOpen(false)}
+        initialConversationId={selectedConversationId || undefined}
+        currentUserId="currentUser"
+      />
+
+      {/* Floating Message Button */}
+      <FloatingMessageButton />
     </div>
   );
 };

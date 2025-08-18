@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { MessagingInterface } from "@/components/messaging/MessagingInterface";
+import { MessageButton } from "@/components/messaging/MessageButton";
 
 const Profile: React.FC = () => {
   const navigate = useNavigate();
@@ -10,6 +12,7 @@ const Profile: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"posts" | "about" | "skills">(
     "posts",
   );
+  const [isMessagingOpen, setIsMessagingOpen] = useState(false);
 
   useEffect(() => {
     const userData = localStorage.getItem("userProfile");
@@ -27,6 +30,10 @@ const Profile: React.FC = () => {
     const posts = JSON.parse(localStorage.getItem("userPosts") || "[]");
     setUserPosts(posts);
   }, [navigate]);
+
+  const handleMessageUser = (userId: string, userName?: string) => {
+    setIsMessagingOpen(true);
+  };
 
   if (!user) return null;
 
@@ -87,12 +94,23 @@ const Profile: React.FC = () => {
                   <h1 className="text-3xl font-bold text-foreground">
                     {user.name}
                   </h1>
-                  <Button
-                    onClick={() => navigate("/edit-profile")}
-                    variant="outline"
-                  >
-                    Edit Profile
-                  </Button>
+                  <div className="flex items-center space-x-3">
+                    <MessageButton
+                      userId={user.id || "current-user"}
+                      userName={user.name}
+                      onClick={handleMessageUser}
+                      variant="default"
+                      className="bg-primary hover:bg-primary/90 text-white"
+                    >
+                      💬 Message
+                    </MessageButton>
+                    <Button
+                      onClick={() => navigate("/edit-profile")}
+                      variant="outline"
+                    >
+                      Edit Profile
+                    </Button>
+                  </div>
                 </div>
 
                 <div className="flex items-center space-x-4 text-sm text-muted-foreground mb-2">
@@ -704,9 +722,14 @@ const Profile: React.FC = () => {
                       </div>
                     </div>
                     <div className="space-y-3">
-                      <Button className="w-full bg-green-600 hover:bg-green-700">
+                      <MessageButton
+                        userId={user.id || "current-user"}
+                        userName={user.name}
+                        onClick={handleMessageUser}
+                        className="w-full bg-green-600 hover:bg-green-700"
+                      >
                         💬 Start Conversation
-                      </Button>
+                      </MessageButton>
                       <Button
                         variant="outline"
                         className="w-full border-blue-500 text-blue-600 hover:bg-blue-50"
@@ -1017,6 +1040,13 @@ const Profile: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Messaging Interface */}
+      <MessagingInterface
+        isOpen={isMessagingOpen}
+        onClose={() => setIsMessagingOpen(false)}
+        currentUserId="currentUser"
+      />
     </div>
   );
 };

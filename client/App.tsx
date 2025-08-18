@@ -15,6 +15,7 @@ import SocialFeed from "./pages/SocialFeed";
 import CreatePost from "./pages/CreatePost";
 import Profile from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";
+import Messages from "./pages/Messages";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/create-post" element={<CreatePost />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/edit-profile" element={<EditProfile />} />
+          <Route path="/messages" element={<Messages />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
