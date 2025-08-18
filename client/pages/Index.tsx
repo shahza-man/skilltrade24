@@ -257,20 +257,20 @@ export default function Index() {
       {/* AI Trade-Matching Section */}
       <section className="bg-black text-white py-20 lg:py-32">
         <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-3 gap-12 items-start">
-            {/* Left Image - Takes 2 columns */}
-            <div className="lg:col-span-2">
-              <div className="relative">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Image */}
+            <div className="relative">
+              <div className="flex items-center justify-center">
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets%2F5bdae9b2904d4e6f8e00b8c0f2e5670e%2Fb7836dc880764791bff4469dbed7278b?format=webp&width=800"
                   alt="AI-powered skill matching connecting professionals for seamless collaboration"
-                  className="w-full h-auto rounded-lg"
+                  className="w-full h-auto max-w-lg rounded-lg"
                 />
               </div>
             </div>
 
-            {/* Right Content - Takes 1 column */}
-            <div className="space-y-6">
+            {/* Right Content */}
+            <div className="space-y-8">
               {/* AI Badge */}
               <div className="flex items-center space-x-2 text-sm">
                 <span className="text-primary">✓</span>
