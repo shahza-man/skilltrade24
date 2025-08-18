@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import FAQSection from "@/components/FAQSection";
+import { motion } from "framer-motion";
+import { useScrollAnimation, fadeInUp, fadeInLeft, fadeInRight, staggerContainer } from "@/hooks/use-scroll-animation";
 
 export default function Index() {
   return (
