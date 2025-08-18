@@ -137,10 +137,32 @@ export default function Index() {
             className="grid lg:grid-cols-2 gap-12 items-center"
             variants={staggerContainer}
           >
-            {/* Left Content */}
+            {/* Left Video */}
+            <motion.div
+              className="relative"
+              variants={fadeInLeft}
+            >
+              <div className="bg-gray-800 rounded-2xl overflow-hidden shadow-lg">
+                <video
+                  className="w-full h-auto rounded-2xl"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                >
+                  <source
+                    src="https://cdn.builder.io/o/assets%2F53e4fd32dd724f51a2e513f718e61215%2F36d2d06960074999aa6c1d75686fd1a5?alt=media&token=ed6ec426-e811-4392-8730-4b358233ff10&apiKey=53e4fd32dd724f51a2e513f718e61215"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </motion.div>
+
+            {/* Right Content */}
             <motion.div
               className="space-y-6"
-              variants={fadeInLeft}
+              variants={fadeInRight}
             >
               <div className="flex items-center space-x-2 text-sm">
                 <span className="text-primary">✓</span>
@@ -161,28 +183,6 @@ export default function Index() {
                 leveraging decades of industry expertise to stay ahead of the
                 curve.
               </p>
-            </motion.div>
-
-            {/* Right Video */}
-            <motion.div
-              className="relative"
-              variants={fadeInRight}
-            >
-              <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-                <video
-                  className="w-full h-auto rounded-lg"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                >
-                  <source
-                    src="https://cdn.builder.io/o/assets%2F53e4fd32dd724f51a2e513f718e61215%2F36d2d06960074999aa6c1d75686fd1a5?alt=media&token=ed6ec426-e811-4392-8730-4b358233ff10&apiKey=53e4fd32dd724f51a2e513f718e61215"
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
             </motion.div>
           </motion.div>
 
