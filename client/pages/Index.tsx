@@ -176,9 +176,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Services Showcase Section */}
-      <ServicesShowcase />
-
       {/* Join Community Section */}
       <section className="bg-black text-white py-16 lg:py-24">
         <div className="container mx-auto px-6">
@@ -252,6 +249,9 @@ export default function Index() {
           </div>
         </div>
       </section>
+
+      {/* Services Showcase Section */}
+      <ServicesShowcase />
 
       {/* AI Trade-Matching Section */}
       <section className="bg-black text-white py-16 lg:py-24">
